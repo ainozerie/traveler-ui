@@ -1,11 +1,10 @@
-.loader-line {
+.loader-line, .empty-line {
     width: 100%;
     height: 3px;
     position: relative;
     overflow: hidden;
     background-color: var(--smoke);
 }
-
 .loader-line:before {
     content: "";
     position: absolute;
@@ -17,7 +16,6 @@
     -moz-animation: lineAnim 1s linear infinite;
     animation: lineAnim 1s linear infinite;
 }
-
 @keyframes lineAnim {
     0% {
         left: -40%;

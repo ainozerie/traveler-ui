@@ -3,6 +3,7 @@
     --black: #131515;
     --green: #00e07f;
     --smoke: #fffafb;
+    --main: #09bc8a;
 }
 * {
     margin: 0;
@@ -12,4 +13,14 @@
 }
 body {
     background-color: var(--smoke);
+}
+header {
+    width: 100%;
+    height: calc(10vh - 3px);
+    display: flex;
+    align-items: center;
+}
+.logo {
+    margin-left: 5vw;
+    margin-bottom: 2vh;
 }
