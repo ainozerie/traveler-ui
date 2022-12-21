@@ -1,26 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600&display=swap');
 :root {
     --black: #131515;
-    --green: #00e07f;
-    --smoke: #fffafb;
-    --main: #09bc8a;
+    --major: #75DDDD;
+    --majorv: #29A3A3;
+    --minor: #8367C7;
+    --minorv: #5603AD;
+    --darkgreen: #0ad49b;
+    --green: #09BC8A;
+    --smoke: rgb(255, 255, 255);
+    --lightblue: #61b9f8;
+    --blue: #1FA2FF;
+    --darkblue: #1986d3;
+    --wall: #5CDB95;
+
+    --gray: rgb(223, 223, 223);
+    --white: rgb(248, 248, 248);
+    --lime: #49c5b6;
+    --darklime: #3ca296;
 }
 * {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Mono', monospace;
     color: var(--black);
+    transition: ease-in;
+    transition-duration: 0.2s;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 body {
-    background-color: var(--smoke);
-}
-header {
-    width: 100%;
-    height: calc(10vh - 3px);
+    background-color: var(--white);
     display: flex;
     align-items: center;
-}
-.logo {
-    margin-left: 5vw;
-    margin-bottom: 2vh;
+    justify-content: center;
+    flex-direction: column;
 }

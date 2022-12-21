@@ -1,0 +1,55 @@
+:root {
+    --width: calc(100vw);
+}
+.results {
+    /* height: calc(100); */
+    background-color: none;
+    z-index: -100;
+    
+}
+
+/* ride */
+h5 {
+    color: gray;
+}
+h3 {
+    color: var(--black);
+}
+.ride {
+    width: calc(100vw - 60px);
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 3px;
+    gap: 7px;
+    position: relative;
+    box-shadow: 0 6px 6px -6px whitesmoke;
+    border: 1px solid var(--gray);
+}
+.ride:last-child {
+    margin-bottom: 75px;
+}
+.ride .description {
+    color: var(--black);
+}
+.left {
+    justify-content: start;
+}
+.right {
+    justify-content: end;
+}
+.connect {
+    font-weight: bold;
+    color: var(--black);
+    cursor: pointer;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    text-align: right;
+    width: 100%;
+
+}
+
+  

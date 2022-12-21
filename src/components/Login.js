@@ -8,7 +8,6 @@ const handleTelegramResponse = response => {
 function Login() {
     return (
         <>
-            <p>{process.env.REACT_APP_MY_ENV_VARIABLE}</p>
             <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="Traveler1703Bot" />
         </>
     );

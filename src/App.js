@@ -1,13 +1,22 @@
 import './App.css';
-import Loader from './basic/Loader';
+import Loader from './components/Loader';
 import React from 'react'
-import Header from './components/Header';
+import Navigation from './navigation/Navigation';
+import Main from './main/Main';
+import Title from './search/Title';
+import { useSelector } from 'react-redux'
+
 
 function App() {
+  const isLoading = useSelector(state => state.isLoading.value)
+
   return (
     <>
-      <Loader />
-      <Header />
+
+      <Title name='Search rides' />
+      <Loader isLoading={isLoading}/>
+      <Main />
+      <Navigation />
     </>
   );
 }
