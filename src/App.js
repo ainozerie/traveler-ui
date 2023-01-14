@@ -1,22 +1,28 @@
-import './App.css';
-import Loader from './components/Loader';
 import React from 'react'
-import Navigation from './navigation/Navigation';
-import Main from './main/Main';
-import Title from './search/Title';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleIsLoading, changeUser } from './store/features/session';
 
 
 function App() {
-  const isLoading = useSelector(state => state.isLoading.value)
+  const isLoading = useSelector(state => state.session.isLoading)
+  const user = useSelector(state => state.session.user)
 
+  const dispatch = useDispatch();
+
+  const clicker = () => {
+    dispatch(toggleIsLoading())
+    console.log(isLoading);
+  }
+  const setUser = () => {
+    dispatch(changeUser('Valera'))
+    console.log('user is ', user);
+  }
   return (
     <>
-
-      <Title name='Search rides' />
-      <Loader isLoading={isLoading}/>
-      <Main />
-      <Navigation />
+    <p>Привет, попутчик!</p>
+    <button onClick={clicker}>toggle loader</button>
+    <button onClick={setUser}>set user</button>
+    
     </>
   );
 }
