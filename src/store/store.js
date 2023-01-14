@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import updateSession from './features/session'
+import updateSession from './session/session'
 
 
 export default configureStore({
