@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import oneReducer from './features/oneSlice'
+import loadingReducer from './features/session'
 
 
 export default configureStore({
   reducer: {
-    isLoading: oneReducer
+    session: loadingReducer 
   }
 });
