@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const setLoading = createSlice({
+export const updateSession = createSlice({
   name: 'session',
   initialState: {
     isLoading: false,
@@ -17,6 +17,6 @@ export const setLoading = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { toggleIsLoading, changeUser } = setLoading.actions;
+export const { toggleIsLoading, changeUser } = updateSession.actions;
 
-export default setLoading.reducer;
+export default updateSession.reducer;
