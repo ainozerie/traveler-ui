@@ -1,9 +1,9 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import Navigation from './Navigation/Navigation'
+import { redirect } from "react-router-dom";
 
 function Dashboard() {
-
   return (
     <>
       <main>

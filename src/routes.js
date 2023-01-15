@@ -14,21 +14,13 @@ export const routes = createBrowserRouter([
       element: <Dashboard />,
       errorElement: <ErrorPage />,
       children: [
-        {
-          path: "/auth",
-          element: <Auth />,
-        },
-        {
-          path: "/search",
-          element: <Search />,
+        { 
+          index: true,
+          element: <Search /> 
         },
         {
           path: "/create",
           element: <CreatePage />,
-        },
-        {
-          path: "/playground",
-          element: <Playground />,
         },
         {
           path: "/profile",
@@ -37,9 +29,17 @@ export const routes = createBrowserRouter([
         {
           path: "/myrides",
           element: <MyRides />,
-        }
+        },
+        {
+          path: "/playground",
+          element: <Playground />,
+        },
       ],
-    }
+    },
+    {
+      path: "/auth",
+      element: <Auth />,
+    },
   ]);
 
 export default routes;
