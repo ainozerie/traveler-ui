@@ -6,8 +6,8 @@ function Navigation() {
     console.log(location);
     return (
         <nav>
-            <Link to={'search'}>
-                <span className={location.pathname.includes('search') ? 'selected' : ''}>Поиск</span>
+            <Link to={'/'}>
+                <span className={location.pathname == '/' ? 'selected' : ''}>Поиск</span>
             </Link>
             <Link to={'myrides'}>
                 <span className={location.pathname.includes('myrides') ? 'selected' : ''}>Мои поездки</span>
