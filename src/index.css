@@ -33,3 +33,33 @@ a .selected {
 h1 {
     text-align: center;    
 }
+.search {
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: white;
+    font-size: 14px;
+}
+input[type=number] {
+    width: 30px;
+    text-align: center;
+}
+button {
+    border: none;
+    border-bottom: 2px solid none;
+    color: deeppink;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    border-bottom: 2px solid deeppink;
+}

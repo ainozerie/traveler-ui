@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 
 function Navigation() {
     let location = useLocation();
-    console.log(location);
+    
     return (
         <nav>
             <Link to={'/'}>
