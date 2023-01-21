@@ -9,6 +9,11 @@ export class RideService {
         return response.data;
     
     }
+    async fetchAllRides() {
+        let response = await axios.get('https://traveler-production.up.railway.app/rides');
+        return response;
+    }
+
     fetchTravelersOfRide() {
 
     }
@@ -18,8 +23,18 @@ export class RideService {
     deleteRide() {
 
     }
-    createRide() {
-
+    async createRide(ride) {
+        let response = await axios.post(this.url + 'rides', {
+            direction: ride.direction,
+            date: ride.date,
+            description: ride.description,
+            price: ride.price,
+            driverId: ride.driverId,
+            capacity: ride.capacity,
+            currentNumberOfPassengers: 0,
+            status: ride.status
+          })
+        return response.data;
     }
     updateRide() {
 
