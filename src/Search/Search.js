@@ -35,6 +35,8 @@ function Search() {
             rideService.fetchRides(searchFilters.direction, searchFilters.date, searchFilters.date)
                 .then((res) => setRides(res))
         }
+        rideService.fetchAllRides()
+        .then(res => console.log(res))
 
     }
 
