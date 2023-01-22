@@ -1,7 +1,8 @@
 import React from 'react';
 import TelegramLoginButton from 'react-telegram-login';
 import { updateSession } from '../store/session/session';
-import {useSelector, useNavigate } from 'react-redux'
+import {useSelector } from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 import { toggleIsLoading, changeUser } from '../store/session/session';
 import { json } from 'react-router-dom';
 
