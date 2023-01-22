@@ -1,32 +1,116 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RideService } from '../services/RideService';
 import modifyDate from '../services/modifyDate';
 
 const rideService = new RideService();
 
 let date = new Date();
+console.log(modifyDate(date));
 
 function CreatePage() {
-
+    const [newRide, setNewRide] = useState({
+        typeOfCreator: 'driver',
+        direction: 'FIN',
+        when: modifyDate(date),
+        capacity: 3,
+        description: ''
+    })
     const clickHandler = () => {
-        rideService.createRide(
-            {
-                direction: 'RUS',
-                date: date.toISOString().split('.')[0].replace('T', '-').replaceAll(':', '-'),
-                description: 'RRR',
-                price: 10,
-                driverId: 1,
-                capacity: 1,
-                currentNumberOfPassengers: 0,
-                status: 'AVAILABLE'
-            }
-        ).then(res => console.log(res));
+        // rideService.createRide(
+        //     {
+        //         direction: 'RUS',
+        //         date: date.toISOString().split('.')[0].replace('T', '-').replaceAll(':', '-'),
+        //         description: 'RRR',
+        //         price: 10,
+        //         driverId: 1,
+        //         capacity: 1,
+        //         currentNumberOfPassengers: 0,
+        //         status: 'AVAILABLE'
+        //     }
+        // ).then(res => console.log(res));
+        console.log(newRide);
+    }
+
+    const changeHandler = event => {
+        setNewRide(newRide, newRide[event.target.name] = event.target.value)
     }
 
     return (
         <>
-        <h1>Создать поездку/ Найти попутку</h1>
-        <button onClick={clickHandler} >Создать Default</button>
+            <div className='createPage'>
+
+                <h1>Создать поездку/ Найти попутку</h1>
+                
+                <div className='row radioContainer'>
+                    <label htmlFor='driver'>
+                        <input  id='driver' 
+                                value='driver' 
+                                type="radio" 
+                                name='typeOfCreator' 
+                                onChange={changeHandler} 
+                                defaultChecked={newRide.typeOfCreator == 'driver'} />
+                        <span>Я водитель</span>
+                    </label>
+                    <label htmlFor='passenger'>
+                        <input  id='passenger' 
+                                value='passenger'  
+                                type="radio" 
+                                name='typeOfCreator' 
+                                onChange={changeHandler} 
+                                defaultChecked={newRide.typeOfCreator == 'passenger'} />
+                        <span>Я попутчик</span>
+                    </label>
+                </div>
+
+                <div className='row radioContainer'>
+                    <label htmlFor='FIN'>
+                        <input  id='FIN'
+                                value='FIN' 
+                                type="radio" 
+                                name='direction' 
+                                onChange={changeHandler} 
+                                defaultChecked={newRide.direction == 'FIN'} />
+                        <span>в Финляндию</span>
+                    </label>
+
+                    <label htmlFor='RUS'>
+                        <input  id='RUS' 
+                                value='RUS' 
+                                type="radio" 
+                                name='direction' 
+                                onChange={changeHandler} 
+                                defaultChecked={newRide.direction == 'RUS'}/>
+                        <span>в Россию</span>
+                    </label>
+                </div>
+
+                <label htmlFor='when' >
+                    <span>Когда: </span>
+                    <input  id='when'
+                            type='date' 
+                            name='when' 
+                            onChange={changeHandler} 
+                            defaultValue={newRide.when} />
+                </label>
+
+                <label htmlFor='capacity' >
+                    <span>Количество мест: </span>
+                    <input  id='capacity' 
+                            type='number' 
+                            name='capacity' 
+                            onChange={changeHandler} 
+                            defaultValue={newRide.capacity} 
+                            min='1' 
+                            max='7' />
+                </label>
+
+                <textarea name='description' onChange={changeHandler}>
+
+                </textarea>
+
+                <button onClick={clickHandler}>Сохранить и консолить</button>
+                {/* <button onClick={clickHandler} >Создать Default</button> */}
+            </div>
         </>
     );
 }

@@ -41,7 +41,7 @@ function Search() {
     }
 
     return (
-        <div className='search'>
+        <div className='searchPage'>
             <h1>Поиск</h1>
             <div>
                 <p>Направление:</p>
