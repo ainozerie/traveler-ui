@@ -18,11 +18,17 @@ function Playground() {
         dispatch(changeUser('Valera'))
         console.log('user is ', user);
     }
+
+    const getUser = () => {
+        console.log('user is ', user);
+    }
     return (
         <>
             <p>Playground</p>
             <button onClick={clicker}>toggle loader</button>
             <button onClick={setUser}>set user</button>
+            <button onClick={getUser}>get user</button>
+
 
         </>
     );
