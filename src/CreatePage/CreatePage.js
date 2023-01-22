@@ -13,22 +13,23 @@ function CreatePage() {
         direction: 'FIN',
         when: modifyDate(date),
         capacity: 3,
-        description: ''
+        description: '',
+        price: 10
     })
     const clickHandler = () => {
-        // rideService.createRide(
-        //     {
-        //         direction: 'RUS',
-        //         date: date.toISOString().split('.')[0].replace('T', '-').replaceAll(':', '-'),
-        //         description: 'RRR',
-        //         price: 10,
-        //         driverId: 1,
-        //         capacity: 1,
-        //         currentNumberOfPassengers: 0,
-        //         status: 'AVAILABLE'
-        //     }
-        // ).then(res => console.log(res));
-        console.log(newRide);
+        rideService.createRide(
+            {
+                direction: newRide.direction,
+                date: new Date(newRide.when).toISOString().split('.')[0].replace('T', '-').replaceAll(':', '-'),
+                description: newRide.description,
+                price: newRide.price,
+                driverId: 1,
+                capacity: newRide.capacity,
+                currentNumberOfPassengers: 0,
+                status: 'AVAILABLE'
+            }
+        ).then(res => console.log(res));
+        // console.log(newRide);
     }
 
     const changeHandler = event => {
@@ -102,6 +103,17 @@ function CreatePage() {
                             defaultValue={newRide.capacity} 
                             min='1' 
                             max='7' />
+                </label>
+
+                <label htmlFor='price' >
+                    <span>Цена: </span>
+                    <input  id='price' 
+                            type='number' 
+                            name='price' 
+                            onChange={changeHandler} 
+                            defaultValue={newRide.price} 
+                            min='10' 
+                            max='100' />
                 </label>
 
                 <textarea name='description' onChange={changeHandler}>
