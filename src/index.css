@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600&display=swap');
-
+:root {
+    --mainColor: #5D3FD3;
+}
 * {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Mono', monospace;
     background-color: whitesmoke;
-
 }
+
 main {
     width: 90%;
     margin-left: 5%;
@@ -34,7 +36,7 @@ a .selected {
 h1 {
     text-align: center;    
 }
-.search {
+.searchPage, .createPage {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -55,16 +57,43 @@ input[type=number] {
 button {
     border: none;
     border-bottom: 2px solid none;
-    color: deeppink;
+    color: var(--mainColor);
     font-size: 16px;
     cursor: pointer;
 }
 button:hover {
-    border-bottom: 2px solid deeppink;
+    border-bottom: 2px solid var(--mainColor);
+}
+/* SearPage */
+
+label {
+    cursor: pointer;
+}
+.radioContainer {
+    color: lightgray;
+}
+input[type='radio'] {  
+    display: none;
 }
 
-
-.tg_button_container{
+input[type='radio']:checked + span {
+    color: var(--mainColor);
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+textarea {
+    width: 300px;
+    height: 90px;
+    padding: 3px;
+    background-color: white;
+    border-radius: 5px;
+}
+.tg_button_container {
         height: 100vh;
         display: grid;
         place-items: center;    
