@@ -16,15 +16,23 @@ function Auth() {
 
 
     const handleTelegramResponse = response => {
-          dispatch(changeUser('valera'));
+
+          dispatch(changeUser(response));
+
           console.log('user is ' + user);
+
     };
+
+    const getUser = () => {
+        console.log('user is ', user);
+    }
 
 
 
     return (
         <div class='tg_button_container'>
             <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="Traveler1703Bot" />
+            <button onClick={getUser}>get user</button>
         </div>
     );
 }
