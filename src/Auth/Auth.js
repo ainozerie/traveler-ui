@@ -14,7 +14,6 @@ function Auth() {
     
     const dispatch = useDispatch();
 
-
     const handleTelegramResponse = response => {
 
           dispatch(changeUser(response));
@@ -30,7 +29,7 @@ function Auth() {
     return (
         <div class='tg_button_container'>
             <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="Traveler1703Bot" />
-            <button onClick={getUser}>get user!</button>
+            <button onClick={getUser}>get user!!!</button>
         </div>
     );
 }
