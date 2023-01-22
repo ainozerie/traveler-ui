@@ -14,7 +14,6 @@ function Auth() {
     const isLoading = useSelector(state => state.session.isLoading)
     const navigate = useNavigate();
 
-
     const handleTelegramResponse = response => {
         localStorage.setItem('user', JSON.stringify(response));
         navigate(-1);
