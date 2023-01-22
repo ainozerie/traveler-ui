@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom'
+
 
 function Profile() {
-
+    const navigate = useNavigate();
     const [user, setUser] = useState({});
 
     useEffect(() => {
