@@ -1,30 +1,43 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { RideService } from '../services/RideService';
+import { modifyDate } from '../services/modifyDate';
 import { updateFilters, updateFilterDate } from '../store/session/session';
 
-const modifyDate = (date) => {
-    return date.toISOString().split('T')[0]
-}
+const rideService = new RideService();
 
 function Search() {
     const searchFilters = useSelector(state => state.session.searchFilters);
     const dispatch = useDispatch();
+    
+    const [rides, setRides] = useState([]);
+    
 
     let today = new Date();
 
+    //updating direction and capacity filters, also date
     const filterHandler = event => {
-        
         dispatch(updateFilters({[event.target.name]: event.target.value}));
     }
+
     const dateHandler = event => {
         let date = modifyDate(new Date(event.target.value));
         dispatch(updateFilterDate(date));
     }
 
-    const clickHandler = () => {
-        if (searchFilters.Date != '' && searchFilters.direction != '' && searchFilters.capacity != '') {
-            console.log(searchFilters);
+    // checking inputs
+    const isValid = () => {
+        return searchFilters.Date != '' && searchFilters.direction != '' && searchFilters.capacity != '';
+    }
+
+    const submitHandler = () => {
+        if (isValid()) {
+            rideService.fetchRides(searchFilters.direction, searchFilters.date, searchFilters.date)
+                .then((res) => setRides(res))
         }
+        rideService.fetchAllRides()
+        .then(res => console.log(res))
+
     }
 
     return (
@@ -59,7 +72,7 @@ function Search() {
                         max='7' 
                         />
             </div>
-            <button onClick={clickHandler}>Найти</button>
+            <button onClick={submitHandler}>Найти</button>
         </div>
     );
 }
