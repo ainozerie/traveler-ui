@@ -9,8 +9,6 @@ function Auth() {
         if (localStorage.getItem('user')) navigate(-1);
     }, []);
 
-    
-
     const handleTelegramResponse = response => {
         localStorage.setItem('user', JSON.stringify(response));
         navigate(-1);
