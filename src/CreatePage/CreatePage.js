@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { RideService } from '../services/RideService';
 import modifyDate from '../services/modifyDate';
+import { useDispatch, useSelector } from 'react-redux'
 
 const rideService = new RideService();
-
 let date = new Date();
 console.log(modifyDate(date));
 

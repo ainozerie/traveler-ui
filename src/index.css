@@ -79,7 +79,6 @@ input[type='radio'] {
 input[type='radio']:checked + span {
     color: var(--mainColor);
 }
-
 .row {
     display: flex;
     align-items: center;
@@ -93,4 +92,9 @@ textarea {
     padding: 3px;
     background-color: white;
     border-radius: 5px;
+}
+.tg_button_container {
+        height: 100vh;
+        display: grid;
+        place-items: center;    
 }
