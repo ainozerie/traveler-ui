@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TelegramLoginButton from 'react-telegram-login';
 import {useNavigate} from 'react-router-dom'
 
 function Auth() {
     const navigate = useNavigate();
 
-    if (localStorage.getItem('user')) navigate(-1);
+    useEffect(() => {
+        if (localStorage.getItem('user')) navigate(-1);
+    }, []);
+
+    
 
     const handleTelegramResponse = response => {
         localStorage.setItem('user', JSON.stringify(response));

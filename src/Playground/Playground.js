@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom';
 import { toggleIsLoading, changeUser } from '../store/session/session';
+
 
 // for testing matters
 
 function Playground() {
+
     const isLoading = useSelector(state => state.session.isLoading)
     const user = useSelector(state => state.session.user)
 
