@@ -17,7 +17,7 @@ function Auth() {
 
     const handleTelegramResponse = response => {
           dispatch(changeUser('valera'));
-          console.log('user is ');
+          console.log('user is ' + user);
     };
 
 
