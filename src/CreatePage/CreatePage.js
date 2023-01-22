@@ -4,7 +4,6 @@ import modifyDate from '../services/modifyDate';
 import { useDispatch, useSelector } from 'react-redux'
 
 const rideService = new RideService();
-const user = useSelector(state => state.session.user)
 let date = new Date();
 
 function CreatePage() {

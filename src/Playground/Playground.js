@@ -28,8 +28,6 @@ function Playground() {
             <button onClick={clicker}>toggle loader</button>
             <button onClick={setUser}>set user</button>
             <button onClick={getUser}>get user</button>
-
-
         </>
     );
 }
