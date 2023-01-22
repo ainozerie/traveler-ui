@@ -37,8 +37,7 @@ function CreatePage() {
     }
 
     return (
-        <>
-            <div className='createPage'>
+        <div className='createPage'>
 
                 <h1>Создать поездку/ Найти попутку</h1>
                 
@@ -122,9 +121,9 @@ function CreatePage() {
 
                 <button onClick={clickHandler}>Сохранить и консолить</button>
                 {/* <button onClick={clickHandler} >Создать Default</button> */}
-            </div>
-        </>
-    );
+        </div>
+
+);
 }
 
 export default CreatePage;

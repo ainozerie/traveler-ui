@@ -34,7 +34,11 @@ a .selected {
     border-bottom: 2px solid black;
 }
 h1 {
-    text-align: center;    
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 20px; 
 }
 .searchPage, .createPage {
     display: flex;
@@ -60,6 +64,7 @@ button {
     color: var(--mainColor);
     font-size: 16px;
     cursor: pointer;
+    margin: 15px;
 }
 button:hover {
     border-bottom: 2px solid var(--mainColor);
