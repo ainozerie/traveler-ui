@@ -18,8 +18,11 @@ function Profile() {
 
     return (
         <div className='profile'>
-        <h1>Профиль</h1>
-        <p>{user.id}</p>
+            <h1>Профиль</h1>
+            <div className='profileContent'>
+                {user.photo_url && <img className='profilePhoto' src={user.photo_url} />}
+                <p className='profileTitle'>{user.first_name} {user.last_name}</p>
+            </div>
         </div>
     );
 }

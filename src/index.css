@@ -104,6 +104,34 @@ textarea {
         place-items: center;    
 }
 
+/* Profile */
+.profile {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+}
+.profileContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 15px
+
+}
+.profilePhoto {
+    border-radius: 50%;
+    width: 50%;
+    max-height: 200px;
+    min-height: 180px;
+}
+.profileTitle {
+    font-weight: bold;
+    font-size: 20px;
+}
+ 
 /* hiding arrows in input type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

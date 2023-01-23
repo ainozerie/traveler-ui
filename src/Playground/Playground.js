@@ -7,6 +7,8 @@ import { toggleIsLoading, changeUser } from '../store/session/session';
 
 function Playground() {
 
+    localStorage.setItem('user', '{"id":993214357,"first_name":"Sergei","last_name":…c3d57ed393e857d0924ae6c1df2e515a232be0292412320"}');
+
     const isLoading = useSelector(state => state.session.isLoading)
     const user = useSelector(state => state.session.user)
 
