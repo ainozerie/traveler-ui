@@ -13,6 +13,7 @@ function Auth() {
     return (
         <div className='tg_button_container'>
             <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="Traveler1703Bot" />
+            <a href='https://t.me/+42777'>Go в телегу!</a>
         </div>
     );
 }
