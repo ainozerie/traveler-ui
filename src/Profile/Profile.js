@@ -11,7 +11,7 @@ function Profile() {
             setUser(JSON.parse(localStorage.getItem('user')));
             console.log(user);
         } else {
-            navigate('/auth');
+            navigate('/auth', { state: { url: window.location.href } });
         }
     }, []);
 

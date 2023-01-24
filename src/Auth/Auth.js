@@ -1,13 +1,22 @@
 import React from 'react';
 import TelegramLoginButton from 'react-telegram-login';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
+
 
 function Auth() {
     const navigate = useNavigate();
+    const {state} = useLocation();
+    const { url } = state; // Read values passed on state
+
 
     const handleTelegramResponse = response => {
         localStorage.setItem('user', JSON.stringify(response));
+        if(url !== undefined){
         navigate(-1);
+        }
+        else{
+            navigate('/auth');
+        }
     };
 
     return (
