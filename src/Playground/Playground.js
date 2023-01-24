@@ -1,11 +1,25 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleIsLoading, changeUser } from '../store/session/session';
+import { isBrowser } from 'react-device-detect';
+
 
 
 // for testing matters
 
 function Playground() {
+
+    let checker = isBrowser;
+    let displayIsBrowser = JSON.stringify(checker);
+    // first check
+    if (window!=window.top) {
+        alert('im app')
+    } else {
+        alert('im browser')
+    }
+    //
+
+
 
     localStorage.setItem('user', '{"id":993214357,"first_name":"Sergei","last_name":…c3d57ed393e857d0924ae6c1df2e515a232be0292412320"}');
 
@@ -32,6 +46,7 @@ function Playground() {
             <button onClick={clicker}>toggle loader</button>
             <button onClick={setUser}>set user</button>
             <button onClick={getUser}>get user</button>
+            <p>{displayIsBrowser} - 2nd check</p>
         </>
     );
 }
