@@ -15,6 +15,9 @@ function Profile() {
         }
     }, []);
 
+    const logout = () => {
+        localStorage.removeItem('user');
+    }
 
     return (
         <div className='profile'>
@@ -22,6 +25,7 @@ function Profile() {
             <div className='profileContent'>
                 {user.photo_url && <img className='profilePhoto' src={decodeURIComponent(user.photo_url)} />}
                 <p className='profileTitle'>{user.first_name} {user.last_name}</p>
+                <span className='logout' onClick={logout}>Выйти</span>
             </div>
         </div>
     );
