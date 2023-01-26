@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function MyRides() {
+    const navigate = useNavigate();
+
     const [myRides, setMyRides] = useState([]);
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            setUser(JSON.parse(localStorage.getItem('user')));
+        } else {
+            navigate('/auth');
+        }
+    }, []);
 
     const displayMyRides = () => {
         if (myRides.length) {
