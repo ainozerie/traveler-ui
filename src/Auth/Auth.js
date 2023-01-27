@@ -12,6 +12,7 @@ function Auth() {
         }
     }, []);
 
+
     // if url has something to be checked
     if (urlQuery.search.length > 0) {
         let userData = retrieveDatafromUrl(urlQuery);
@@ -35,7 +36,7 @@ function Auth() {
         } else {
             return (
                 <div className='auth'>
-                    <a className='entrance' href='https://t.me/Traveler1703Bot'>
+                    <a className='entrance' href='https://t.me/Traveler1703Bot?token=1234'>
                         Авторизоваться через Телеграм
                     </a>
                     <Link to={'/'}>
@@ -48,7 +49,7 @@ function Auth() {
     } else {
         return (
             <div className='auth'>
-                <a className='entrance' href='https://t.me/Traveler1703Bot'>
+                <a className='entrance' href='https://t.me/Traveler1703Bot?token=1234'>
                     Авторизоваться через Телеграм
                 </a>
                 <Link to={'/'}>
