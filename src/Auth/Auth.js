@@ -45,35 +45,15 @@ function Auth() {
 
         // if we authorizing user
         if (userData.success) {
-            // send data to back (user + token)
-            authService.saveUser().then(res => {
-                console.log('user saved succesfully to the backend');
-                // when positive result got save user to localStorage
-                if (res) {
-                    localStorage.setItem('user', JSON.stringify(userData));
-                } else {
-                    console.log('user was not saved at backend');
-                }
-            })
+            localStorage.setItem('user', JSON.stringify(userData));
+                setAuthResult(true);
             return (
                 <div className='auth'>
                     Выполняется вход...
                 </div>
             );
-            // url has weird stuff
-        } else {
-            return (
-                <div className='auth'>
-                    <button className='auth-button' onClick={authHandler}>
-                        Войти через Телеграм
-                    </button>
-                    <Link to={'/'}>
-                        <span>&#8592; Вернуться</span>
-                    </Link>
-                </div>
-            );
         }
-        // if url does not have anything to be checked and localStorage is empty
+        // if url does not have anything relevant to be checked and localStorage is empty
     } else {
         return (
             <div className='auth'>
