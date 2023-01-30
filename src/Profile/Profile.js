@@ -9,7 +9,6 @@ function Profile() {
     useEffect(() => {
         if (localStorage.getItem('user')) {
             setUser(JSON.parse(localStorage.getItem('user')));
-            console.log(user);
         } else {
             navigate('/auth');
         }
@@ -25,6 +24,7 @@ function Profile() {
             <h1>Профиль</h1>
             <div className='profileContent'>
                 {user.photo_url && <img className='profilePhoto' src={decodeURIComponent(user.photo_url)} />}
+                {!user.photo_url && <img className='profilePhoto' src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/242px-Telegram_2019_Logo.svg.png'/>}
                 <p className='profileTitle'>{user.first_name} {user.last_name}</p>
                 <span className='logout' onClick={logout}>Выйти</span>
             </div>

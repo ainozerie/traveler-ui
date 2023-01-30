@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600&display=swap');
+
 :root {
     --blue: #229ED9;
     --darkblue: #0088CC;
@@ -6,9 +7,12 @@
     --gray: #8C8C8C;
     --white: #FFFFFF;
 }
-body, .root {
+
+body,
+.root {
     height: 100%;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +27,7 @@ main {
     margin-left: 5%;
     height: calc(100vh - 60px);
 }
+
 nav {
     width: 100vw;
     height: 60px;
@@ -31,6 +36,7 @@ nav {
     align-items: center;
     justify-content: space-around;
 }
+
 /* remove after tailwind is applied*/
 a {
     text-decoration: none;
@@ -39,34 +45,41 @@ a {
     cursor: pointer;
     border-bottom: 2px solid none;
 }
+
 a .selected {
     border-bottom: 2px solid black;
 }
+
 h1 {
     width: 100%;
     font-size: 25px;
     text-align: center;
     padding-top: 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
-.searchPage, .createPage {
+
+.searchPage,
+.createPage {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
 }
 
-input, select {
+input,
+select {
     border: 1px solid lightgray;
     border-radius: 5px;
     padding: 2px;
     background-color: white;
     font-size: 14px;
 }
+
 input[type=number] {
     width: 40px;
     text-align: center;
 }
+
 button {
     border: none;
     border-bottom: 2px solid none;
@@ -75,24 +88,29 @@ button {
     cursor: pointer;
     margin: 15px;
 }
+
 button:hover {
     border-bottom: 2px solid var(--blue);
 }
+
 /* SearchPage */
 
 label {
     cursor: pointer;
 }
+
 .radioContainer {
     color: lightgray;
 }
-input[type='radio'] {  
+
+input[type='radio'] {
     display: none;
 }
 
-input[type='radio']:checked + span {
+input[type='radio']:checked+span {
     color: var(--blue);
 }
+
 .row {
     display: flex;
     align-items: center;
@@ -100,6 +118,7 @@ input[type='radio']:checked + span {
     flex-direction: row;
     gap: 10px;
 }
+
 textarea {
     width: 300px;
     height: 90px;
@@ -115,6 +134,7 @@ textarea {
     display: flex;
     height: 100%;
 }
+
 .profileContent {
     display: flex;
     align-items: center;
@@ -123,13 +143,14 @@ textarea {
     height: 100%;
     width: 100%;
     gap: 15px
-
 }
+
 .profilePhoto {
     border-radius: 50%;
     max-height: 200px;
     min-height: 180px;
 }
+
 .profileTitle {
     font-weight: bold;
     font-size: 20px;
@@ -148,7 +169,7 @@ textarea {
     background-color: var(--white);
 }
 
-.auth > a > span {
+.auth>a>span {
     color: var(--black);
     position: absolute;
     top: 15px;
@@ -158,22 +179,27 @@ textarea {
 .entrance {
     cursor: pointer;
 }
- 
+
 /* hiding arrows in input type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .logout {
     color: var(--gray);
+    cursor: pointer;
+}
+
+.logout:hover {
+    color: crimson;
 }
 
 .auth-button {
@@ -184,8 +210,33 @@ input[type=number] {
     background-color: var(--blue);
     padding: 15px;
 }
+
 .auth-button:hover {
     border: none;
     font-size: 15.1px;
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Spinner */
+
+.spinner {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--blue);
+    --_m:
+        conic-gradient(#0000 10%, #000),
+        linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: s3 1s infinite linear;
+}
+
+@keyframes s3 {
+    to {
+        transform: rotate(1turn)
+    }
 }

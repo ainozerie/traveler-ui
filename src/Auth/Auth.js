@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import retrieveDatafromUrl from '../services/retrieveDatafromUrl';
 import { AuthService } from '../services/AuthService';
+import Spinner from '../Spinner/Spinner';
 
 function Auth() {
-
     let authService = new AuthService();
 
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ function Auth() {
     }
 
     useEffect(() => {
-        if (authResult) setTimeout(() => navigate('/'), 5000)
+        if (authResult) setTimeout(() => navigate('/'), 3000)
     }, [authResult]);
 
     const authHandler = () => {
@@ -36,29 +36,29 @@ function Auth() {
         })
     }
 
-    // if localStorage is empty and url has something to be checked
+    // if localStorage has user
     if (localStorage.getItem('user')) {
-        setTimeout(() => navigate('/'), 1000)
+        setTimeout(() => navigate('/'), 3000)
         return (
             <div className='auth'>
-                Выполняется вход...
+                <Spinner />
+                Выполняется вход
             </div>
         );
-        // if url does not have anything relevant to be checked and localStorage is empty
+    // if url is checkable
     } else if (urlQuery.search.length > 0) {
         let userData = retrieveDatafromUrl(urlQuery);
-
-        // if we authorizing user
         if (userData.success) {
             localStorage.setItem('user', JSON.stringify(userData));
             setAuthResult(true);
             return (
                 <div className='auth'>
-                    Выполняется вход...
+                    <Spinner />
+                    Выполняется вход
                 </div>
             );
         }
-        // if url does not have anything relevant to be checked and localStorage is empty
+    // if url does not have anything relevant to be checked and localStorage is empty
     } else {
         return (
             <div className='auth'>
