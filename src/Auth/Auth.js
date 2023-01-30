@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import retrieveDatafromUrl from '../services/retrieveDatafromUrl';
-import {AuthService} from '../services/AuthService';
+import { AuthService } from '../services/AuthService';
 
 function Auth() {
 
@@ -10,7 +10,6 @@ function Auth() {
     const navigate = useNavigate();
     let urlQuery = useLocation();
 
-    let [tokenSent, setTokenSent] = useState(false);
     let [authResult, setAuthResult] = useState(false);
 
     let token;
@@ -23,11 +22,9 @@ function Auth() {
 
     useEffect(() => {
         if (authResult) setTimeout(() => navigate('/'), 5000)
-        if (tokenSent) window.open('https://t.me/Traveler1703Bot?' + 'start=' + token, '_blank');
-    }, [authResult, tokenSent]);
+    }, [authResult]);
 
     const authHandler = () => {
-        setTokenSent(true);
         authService.sendToken(token).then(res => {
             //  at this moment without code.status
             if (token == res.token) {
@@ -40,13 +37,21 @@ function Auth() {
     }
 
     // if localStorage is empty and url has something to be checked
-    if (urlQuery.search.length > 0) {
+    if (localStorage.getItem('user')) {
+        setTimeout(() => navigate('/'), 1000)
+        return (
+            <div className='auth'>
+                Выполняется вход...
+            </div>
+        );
+        // if url does not have anything relevant to be checked and localStorage is empty
+    } else if (urlQuery.search.length > 0) {
         let userData = retrieveDatafromUrl(urlQuery);
 
         // if we authorizing user
         if (userData.success) {
             localStorage.setItem('user', JSON.stringify(userData));
-                setAuthResult(true);
+            setAuthResult(true);
             return (
                 <div className='auth'>
                     Выполняется вход...
@@ -57,9 +62,10 @@ function Auth() {
     } else {
         return (
             <div className='auth'>
-                <button className='auth-button' onClick={authHandler}>
-                    Войти через Телеграм
-                </button>
+                <a className='auth-button'
+                    href={'https://t.me/Traveler1703Bot?' + 'start=' + token}
+                    target='_blank'
+                    onClick={authHandler}>Войти через Телеграм</a>
                 <Link to={'/'}>
                     <span>&#8592; Вернуться</span>
                 </Link>
