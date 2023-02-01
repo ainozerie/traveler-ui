@@ -2,128 +2,110 @@ import React, { useState } from 'react';
 import { RideService } from '../services/RideService';
 import modifyDate from '../services/modifyDate';
 import { useDispatch, useSelector } from 'react-redux'
+import Label from '../Filters/Label/Label';
+import Counter from '../Filters/Counter/Counter';
 
 const rideService = new RideService();
-let date = new Date();
-console.log(modifyDate(date));
+let today = new Date();
+console.log(modifyDate(today));
 
 function CreatePage() {
     const [newRide, setNewRide] = useState({
-        typeOfCreator: 'driver',
         direction: 'FIN',
-        when: modifyDate(date),
-        capacity: 3,
+        when: modifyDate(today),
         description: '',
-        price: 10
+        price: 10,
+        capacity: '3',
+        status: 'AVAILABLE',
+        typeOfCreator: 'driver',
     })
+    const [capacity, setCapacity] = useState(newRide.capacity);
+    const [price, setPrice] = useState(newRide.price);
     const clickHandler = () => {
+        // rideService.createRide(
+        //     {
+        //         direction: newRide.direction,
+        //         date: modifyDate(today),
+        //         description: newRide.description,
+        //         price: newRide.price,
+        //         driverId: 1,
+        //         capacity: newRide.capacity,
+        //         currentNumberOfPassengers: 1,
+        //         status: 'AVAILABLE'
+        //     }
+        // ).then(res => console.log(res));
+        // console.log(newRide);
         rideService.createRide(
             {
-                direction: newRide.direction,
-                date: new Date(newRide.when).toISOString().split('.')[0].replace('T', '-').replaceAll(':', '-'),
-                description: newRide.description,
-                price: newRide.price,
-                driverId: 1,
-                capacity: newRide.capacity,
+                direction: 'RUS',
+                date: '2023-02-12',
+                description: 'RRR',
+                price: 10,
+                driverId: 99,
+                capacity: 1,
                 currentNumberOfPassengers: 0,
                 status: 'AVAILABLE'
             }
         ).then(res => console.log(res));
-        // console.log(newRide);
     }
 
     const changeHandler = event => {
         setNewRide(newRide, newRide[event.target.name] = event.target.value)
+        console.log(newRide);
+    }
+
+    const getCount = (count) => {
+        setCapacity(count);
+        setNewRide(newRide, newRide['capacity'] = count)
+    }
+    const getPrice = (count) => {
+        setPrice(count);
+        setNewRide(newRide, newRide['price'] = count)
     }
 
     return (
         <div className='createPage'>
 
-                <h1>Создать поездку/ Найти попутку</h1>
-                
-                <div className='row radioContainer'>
-                    <label htmlFor='driver'>
-                        <input  id='driver' 
-                                value='driver' 
-                                type="radio" 
-                                name='typeOfCreator' 
-                                onChange={changeHandler} 
-                                defaultChecked={newRide.typeOfCreator == 'driver'} />
-                        <span>Я водитель</span>
-                    </label>
-                    <label htmlFor='passenger'>
-                        <input  id='passenger' 
-                                value='passenger'  
-                                type="radio" 
-                                name='typeOfCreator' 
-                                onChange={changeHandler} 
-                                defaultChecked={newRide.typeOfCreator == 'passenger'} />
-                        <span>Я попутчик</span>
-                    </label>
-                </div>
+            <h1>Создать поездку/ Найти попутку</h1>
+            <Label options={[{ value: 'RUS', title: 'В Россию' }, { value: 'FIN', title: 'В Финляндию' }]}
+                default={newRide.direction}
+                name='direction'
+                changeHandler={changeHandler} />
+            <Label options={[{ value: 'driver', title: 'Я водитель' }, { value: 'passenger', title: 'Я попутчик' }]}
+                default={newRide.typeOfCreator}
+                name='typeOfCreator'
+                changeHandler={changeHandler} />
 
-                <div className='row radioContainer'>
-                    <label htmlFor='FIN'>
-                        <input  id='FIN'
-                                value='FIN' 
-                                type="radio" 
-                                name='direction' 
-                                onChange={changeHandler} 
-                                defaultChecked={newRide.direction == 'FIN'} />
-                        <span>в Финляндию</span>
-                    </label>
 
-                    <label htmlFor='RUS'>
-                        <input  id='RUS' 
-                                value='RUS' 
-                                type="radio" 
-                                name='direction' 
-                                onChange={changeHandler} 
-                                defaultChecked={newRide.direction == 'RUS'}/>
-                        <span>в Россию</span>
-                    </label>
-                </div>
+            <label htmlFor='when' >
+                <span>Когда: </span>
+                <input id='when'
+                    type='date'
+                    name='when'
+                    onChange={changeHandler}
+                    defaultValue={newRide.when} />
+            </label>
+            <div className='content-inline-apart'>
+            <div className='d-flex d-left'>
+            <p>Количество мест:</p>
+            <Counter getCount={getCount}
+                count={capacity} min='1' max='8' step='1' />
+            </div>
+            <div className='d-flex d-right'>
+            <p>Стоимость:</p>
+            <Counter getCount={getPrice}
+                count={price} min='10' max='100' step='10' />
+            </div>
+            </div>
+            <textarea name='description' onChange={changeHandler}>
 
-                <label htmlFor='when' >
-                    <span>Когда: </span>
-                    <input  id='when'
-                            type='date' 
-                            name='when' 
-                            onChange={changeHandler} 
-                            defaultValue={newRide.when} />
-                </label>
+            </textarea>
 
-                <label htmlFor='capacity' >
-                    <span>Количество мест: </span>
-                    <input  id='capacity' 
-                            type='number' 
-                            name='capacity' 
-                            onChange={changeHandler} 
-                            defaultValue={newRide.capacity} 
-                            min='1' 
-                            max='7' />
-                </label>
-
-                <label htmlFor='price' >
-                    <span>Цена: </span>
-                    <input  id='price' 
-                            type='number' 
-                            name='price' 
-                            onChange={changeHandler} 
-                            defaultValue={newRide.price} 
-                            min='10' 
-                            max='100' />
-                </label>
-
-                <textarea name='description' onChange={changeHandler}>
-
-                </textarea>
-
-                <button onClick={clickHandler}>Сохранить и консолить</button>
-                {/* <button onClick={clickHandler} >Создать Default</button> */}
+            <button onClick={clickHandler}>Сохранить и консолить</button>
+            {/* <button onClick={clickHandler} >Создать Default</button> */}
         </div>
 
-);
+    );
 }
 
 export default CreatePage;
