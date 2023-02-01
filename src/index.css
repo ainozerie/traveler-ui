@@ -6,6 +6,7 @@
     --black: #333333;
     --gray: #8C8C8C;
     --white: #FFFFFF;
+    --smoke: whitesmoke;
 }
 
 body,
@@ -20,11 +21,34 @@ body,
     background-color: var(--white);
     transition: ease-in-out;
     transition-duration: 0.2s;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.d-left {
+    align-items: flex-start;
+}
+.d-right {
+    align-items: flex-end;
 }
 
+.content-inline-apart {
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+}
+
+
 main {
-    width: 90%;
-    margin-left: 5%;
+    width: calc(100% - 50px);
+    margin-left: 25px;
     height: calc(100vh - 60px);
 }
 
@@ -58,12 +82,18 @@ h1 {
     margin-bottom: 20px;
 }
 
-.searchPage,
+.searchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+}
 .createPage {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 input,
@@ -86,7 +116,7 @@ button {
     color: var(--blue);
     font-size: 16px;
     cursor: pointer;
-    margin: 15px;
+    margin: 15px 0;
 }
 
 button:hover {
@@ -94,22 +124,10 @@ button:hover {
 }
 
 /* SearchPage */
-
-label {
-    cursor: pointer;
+.title {
+    color: var(--black);
 }
 
-.radioContainer {
-    color: lightgray;
-}
-
-input[type='radio'] {
-    display: none;
-}
-
-input[type='radio']:checked+span {
-    color: var(--blue);
-}
 
 .row {
     display: flex;
@@ -217,26 +235,3 @@ input[type=number] {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Spinner */
-
-.spinner {
-    width: 50px;
-    padding: 8px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: var(--blue);
-    --_m:
-        conic-gradient(#0000 10%, #000),
-        linear-gradient(#000 0 0) content-box;
-    -webkit-mask: var(--_m);
-    mask: var(--_m);
-    -webkit-mask-composite: source-out;
-    mask-composite: subtract;
-    animation: s3 1s infinite linear;
-}
-
-@keyframes s3 {
-    to {
-        transform: rotate(1turn)
-    }
-}

@@ -1,0 +1,20 @@
+.counter-button {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--smoke);
+    cursor: pointer;
+}
+.counter-screen {
+    font-size: 16px;
+}
+.counter-button:first-child {
+    font-weight: bold;
+}
+input[type=text] {
+    /* display: none; */
+}
