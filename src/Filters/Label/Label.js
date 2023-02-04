@@ -6,6 +6,7 @@ function Label(props) {
     // options is array with strings, name, default
     let labelsToDisplay = props.options.map(item => {
         return (
+            <div className='label'>
             <label key={item.value} htmlFor={item.value}>
                 <input id={item.value}
                     value={item.value}
@@ -15,6 +16,7 @@ function Label(props) {
                     onChange={props.changeHandler}/>
                 <span className='direction-to-be-picked '>{item.title}</span>
             </label>
+            </div>
         )
     })
 

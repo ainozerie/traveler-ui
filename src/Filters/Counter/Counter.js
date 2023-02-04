@@ -13,7 +13,9 @@ function Counter({getCount, count, min, max, step}) {
     }
 
     return (
+        <div className='counter'>
         <div className='row'>
+            
             <span   id={-step} 
                     className='counter-button'
                     onClick={clickHandler}>-</span>
@@ -23,6 +25,7 @@ function Counter({getCount, count, min, max, step}) {
             <span   id={step} 
                     className='counter-button'
                     onClick={clickHandler}>+</span>
+        </div>
         </div>
     );
 }

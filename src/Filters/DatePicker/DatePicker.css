@@ -2,7 +2,7 @@
     width: 100vw;
     position: relative;
     left: calc(-50vw + 50%);
-    height: 35px;
+    height: 60px;
     display: flex;
     align-items: center;
     white-space: nowrap;
@@ -25,6 +25,7 @@
     border-radius: 20px;
     height: 32px;
     width: 82px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .date-picker label:first-child .date-to-be-picked {
     margin-left: 25px;
@@ -36,4 +37,5 @@
 input[type='radio']:checked+.date-to-be-picked {
     background-color: var(--blue);
     color: var(--white);
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
 }
