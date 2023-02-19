@@ -6,7 +6,7 @@ function Label(props) {
     // options is array with strings, name, default
     let labelsToDisplay = props.options.map(item => {
         return (
-            <div className='label'>
+            <div className='label' key={item.value}>
             <label key={item.value} htmlFor={item.value}>
                 <input id={item.value}
                     value={item.value}

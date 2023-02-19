@@ -21,7 +21,7 @@ function Auth() {
     }
 
     useEffect(() => {
-        if (authResult) setTimeout(() => navigate('/'), 3000)
+        if (authResult) setTimeout(() => navigate('/'), 1000)
     }, [authResult]);
 
     const authHandler = () => {
@@ -38,7 +38,7 @@ function Auth() {
 
     // if localStorage has user
     if (localStorage.getItem('user')) {
-        setTimeout(() => navigate('/'), 3000)
+        setTimeout(() => navigate('/'), 1000)
         return (
             <div className='auth'>
                 <Spinner />

@@ -13,32 +13,25 @@ const rideService = new RideService();
 function Search() {
     const searchFilters = useSelector(state => state.session.searchFilters);
     const dispatch = useDispatch();
-
     const [rides, setRides] = useState([]);
-    const ride = {
-        id: 153,
-        direction: 'FIN',
-        description: 'Здравствуйте Еду из Хельсинки в Петрозаводск Беру попутчиков 70€ с человека Также беру посылки 30€ Выезжаем в 19:30 от жд вокзала Хельсинки',
-        date: '2023-02-01',
-        price: 10,
-        driverId: '@AndreyCergeevih',
-        capacity: 3,
-        currentNumberOfPassengers: 0,
-        status: 'AVAILABLE'
-    }
-    console.log(searchFilters);
+
+    useEffect(() => {
+        rideService.fetchAllRides().then(res => {
+            setRides(res.data);
+        });
+    }, [])
+
+
+    const ridesToDisplay = rides.map(ride => {
+        return <Ride key={ride.driver.tgUsername + Date.now() }  ride={ride} />
+    })
+
 
     const getCount = (count) => {
         dispatch(updateFilters({ 'capacity': count }));
     }
-    //updating direction and capacity filters, also date
     const filterHandler = event => {
         dispatch(updateFilters({ [event.target.name]: event.target.value }));
-    }
-
-    const submitHandler = () => {
-        rideService.fetchRides(searchFilters.direction, searchFilters.date, searchFilters.date)
-            .then((res) => console.log(res))
     }
 
     return (
@@ -58,13 +51,8 @@ function Search() {
                 count={searchFilters.capacity} min='1' max='8' step='1'/>
             <p className='help-text'>Найдено: 10</p>
             </div>
-            <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-            <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-            <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-            <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-            <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-            <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-        </div>
+            {rides.length > 0  && ridesToDisplay}
+        </div> 
     );
 }
 
