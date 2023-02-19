@@ -1,0 +1,28 @@
+.counter-button {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--smoke);
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+}
+.counter-screen {
+    font-size: 16px;
+}
+.counter-button:first-child {
+    font-weight: bold;
+}
+
+input[type=text] {
+    /* display: none; */
+}
+.counter {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

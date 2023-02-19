@@ -1,0 +1,22 @@
+.ride {
+    width: calc(100% - 30px);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+.ride img {
+    width: 50px;
+}
+.ride-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.ride .username, .ride .price {
+    padding: 10px;
+    font-weight: bold;
+}
+.connect {
+    color: var(--blue);
+}

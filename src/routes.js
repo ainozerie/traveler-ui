@@ -39,7 +39,7 @@ export const routes = createBrowserRouter([
     {
       path: "/auth",
       element: <Auth />,
-    },
+    }
   ]);
 
 export default routes;
