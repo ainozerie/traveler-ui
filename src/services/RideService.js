@@ -5,7 +5,7 @@ export class RideService {
     url = 'https://traveler-production.up.railway.app/';
 
     async fetchRides(direction, afterDate, beforeDate) {
-        let response = await axios.get(this.url + 'rides/' + `query?direction=${direction.toUpperCase()}&dateAfter=${afterDate}&dateBefore=${new Date(new Date(afterDate).getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0,10)}`)
+        let response = await axios.get(this.url + 'rides/' + `query?direction=${direction.toUpperCase()}&dateAfter=${afterDate}&dateBefore=${beforeDate}`)
         return response.data;
     
     }
