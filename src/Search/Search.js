@@ -16,6 +16,13 @@ function Search() {
 
     const [rides, setRides] = useState([]);
     console.log(searchFilters);
+    
+    rideService.fetchRides(searchFilters.direction, searchFilters.date, new Date(new Date(searchFilters.date).getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0,10))
+    .then((res) => {
+        setRides(res)
+    }
+    );
+
 
   
 
@@ -27,7 +34,6 @@ function Search() {
     //updating direction and capacity filters, also date
     const filterHandler = event => {
         dispatch(updateFilters({ [event.target.name]: event.target.value }))
-        searchFilters = useSelector(state => state.session.searchFilters);
         submitHandler();
     }
 
