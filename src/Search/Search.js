@@ -16,10 +16,8 @@ function Search() {
 
     const [rides, setRides] = useState([]);
     console.log(searchFilters);
-    
-    if(searchFilters !== undefined){
-        submitHandler();
-    }
+
+  
 
     console.log(rideService.fetchAllRides().data)
 
@@ -40,6 +38,10 @@ function Search() {
                 setRides(res)
             }
             )
+    }
+
+    if(searchFilters !== undefined){
+        submitHandler();
     }
 
     return (
