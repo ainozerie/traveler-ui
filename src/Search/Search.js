@@ -44,8 +44,8 @@ function Search() {
             .then((res) => {
                 console.log('hei');
 
-                console.log(res.data);
-                setRides(res.data)
+                console.log(res);
+                setRides(res)
             }
             )
     }
