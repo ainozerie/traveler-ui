@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Counter from "../Filters/Counter/Counter";
-import Notification from './Notification';
+import Notification from '../Notification/Notification';
 
 
 function Playground() {
