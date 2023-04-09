@@ -15,6 +15,7 @@ function Ride(props) {
             <div className='ride-content'>
                 <p>{props.description}</p>
             </div>
+            <div class="d-flex d-left"><a class="">Осталось мест: {props.capacity - props.currentNumberOfPassengers}</a></div>
             <div className='d-flex d-right'>
             <a className='connect'>Связаться с водителем</a>
             </div>
