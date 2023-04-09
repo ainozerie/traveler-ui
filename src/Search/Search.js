@@ -41,7 +41,7 @@ function Search() {
 
     const submitHandler = () => {
         rideService.fetchRides(searchFilters.direction, searchFilters.date, searchFilters.date)
-            .then((res) => console.log(res))
+            .then((res) => console.log(res.data))
     }
 
     return (
