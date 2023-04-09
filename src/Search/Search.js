@@ -35,8 +35,9 @@ function Search() {
     }
     //updating direction and capacity filters, also date
     const filterHandler = event => {
-        dispatch(updateFilters({ [event.target.name]: event.target.value }));
-        submitHandler();
+        dispatch(updateFilters({ [event.target.name]: event.target.value })).then(() => {
+            submitHandler();
+          });
     }
 
     const submitHandler = () => {
