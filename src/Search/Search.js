@@ -62,7 +62,7 @@ function Search() {
             <div className='content-inline-apart'>
             <Counter getCount={getCount}
                 count={searchFilters.capacity} min='1' max='8' step='1'/>
-            <p className='help-text'>Найдено: 10</p>
+            <p className='help-text'>Найдено: {rides.length}</p>
             </div>
             
             <div>
