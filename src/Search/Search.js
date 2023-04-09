@@ -42,6 +42,9 @@ function Search() {
                 console.log('hei');
 
                 console.log(res);
+
+               res = res.filter(ride => (ride.capacity - ride.currentNumberOfPassengers) > searchFilters.capacity);
+
                 setRides(res)
             }
             )
