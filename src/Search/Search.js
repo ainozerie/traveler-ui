@@ -15,18 +15,8 @@ function Search() {
     const dispatch = useDispatch();
 
     const [rides, setRides] = useState([]);
-    // const ride = {
-    //     id: 153,
-    //     direction: 'FIN',
-    //     description: 'Здравствуйте Еду из Хельсинки в Петрозаводск Беру попутчиков 70€ с человека Также беру посылки 30€ Выезжаем в 19:30 от жд вокзала Хельсинки',
-    //     date: '2023-02-01',
-    //     price: 10,
-    //     driverId: '@AndreyCergeevih',
-    //     capacity: 3,
-    //     currentNumberOfPassengers: 0,
-    //     status: 'AVAILABLE'
-    // }
     console.log(searchFilters);
+    submitHandler();
 
     console.log(rideService.fetchAllRides().data)
 
@@ -34,9 +24,8 @@ function Search() {
         dispatch(updateFilters({ 'capacity': count }));
     }
     //updating direction and capacity filters, also date
-    const filterHandler = async event => {
-        dispatch(await updateFilters({ [event.target.name]: event.target.value }))
-        submitHandler();
+    const filterHandler = event => {
+        dispatch(updateFilters({ [event.target.name]: event.target.value }))
     }
 
     const submitHandler = () => {
