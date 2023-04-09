@@ -16,16 +16,14 @@ function Search() {
 
     const [rides, setRides] = useState([]);
     console.log(searchFilters);
+
     useEffect(() => {
         submitHandler();
       }, [])
-
-      const [count, setCount] = useState(0);
-
-      function handleClick() {
-        setCount(count + 1); // Update the count state variable
-      }
     
+      useEffect(() => {
+        submitHandler();
+      }, [searchFilters]);
 
 
     console.log(rideService.fetchAllRides().data)
@@ -59,10 +57,10 @@ function Search() {
                 changeHandler={filterHandler} />
 
             <p className='title'>Выберите дату:</p>
-            <DatePicker onClick={handleClick} changeHandler={filterHandler} />
+            <DatePicker changeHandler={filterHandler} />
             <p>Количество мест:</p>
             <div className='content-inline-apart'>
-            <Counter onClick={handleClick} getCount={getCount}
+            <Counter getCount={getCount}
                 count={searchFilters.capacity} min='1' max='8' step='1'/>
             <p className='help-text'>Найдено: 10</p>
             </div>
