@@ -16,15 +16,10 @@ function Search() {
 
     const [rides, setRides] = useState([]);
     console.log(searchFilters);
-    
-    rideService.fetchRides(searchFilters.direction, searchFilters.date, new Date(new Date(searchFilters.date).getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0,10))
-    .then((res) => {
-        setRides(res)
-    }
-    );
+    useEffect(() => {
+        submitHandler();
+      }, [])
 
-
-  
 
     console.log(rideService.fetchAllRides().data)
 
