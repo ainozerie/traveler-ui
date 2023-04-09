@@ -35,9 +35,13 @@ function Search() {
     }
     //updating direction and capacity filters, also date
     const filterHandler = event => {
-        dispatch(updateFilters({ [event.target.name]: event.target.value })).then(() => {
-            submitHandler();
-          });
+        Promise.resolve(dispatch(updateFilters({ [event.target.name]: event.target.value })))
+        .then(() => {
+          submitHandler();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
 
     const submitHandler = () => {
