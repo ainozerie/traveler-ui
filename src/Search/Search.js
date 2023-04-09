@@ -34,14 +34,9 @@ function Search() {
         dispatch(updateFilters({ 'capacity': count }));
     }
     //updating direction and capacity filters, also date
-    const filterHandler = event => {
-        Promise.resolve(dispatch(updateFilters({ [event.target.name]: event.target.value })))
-        .then(() => {
-          submitHandler();
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    const filterHandler = async event => {
+       await dispatch(updateFilters({ [event.target.name]: event.target.value }))
+        submitHandler();
     }
 
     const submitHandler = () => {
