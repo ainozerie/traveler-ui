@@ -11,7 +11,7 @@ import Ride from '../Ride/Ride';
 const rideService = new RideService();
 
 function Search() {
-    const searchFilters = useSelector(state => state.session.searchFilters);
+    let searchFilters = useSelector(state => state.session.searchFilters);
     const dispatch = useDispatch();
 
     const [rides, setRides] = useState([]);
@@ -27,6 +27,8 @@ function Search() {
     //updating direction and capacity filters, also date
     const filterHandler = event => {
         dispatch(updateFilters({ [event.target.name]: event.target.value }))
+        searchFilters = useSelector(state => state.session.searchFilters);
+        submitHandler();
     }
 
     const submitHandler = () => {
@@ -38,10 +40,6 @@ function Search() {
                 setRides(res)
             }
             )
-    }
-
-    if(searchFilters !== undefined){
-        submitHandler();
     }
 
     return (
