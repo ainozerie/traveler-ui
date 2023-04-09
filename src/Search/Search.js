@@ -35,7 +35,7 @@ function Search() {
     }
     //updating direction and capacity filters, also date
     const filterHandler = async event => {
-       await dispatch(updateFilters({ [event.target.name]: event.target.value }))
+        dispatch(await updateFilters({ [event.target.name]: event.target.value }))
         submitHandler();
     }
 
