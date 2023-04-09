@@ -28,7 +28,7 @@ function Search() {
     }
     console.log(searchFilters);
 
-    console.log(rideService.fetchAllRides())
+    console.log(rideService.fetchAllRides().data)
 
     const getCount = (count) => {
         dispatch(updateFilters({ 'capacity': count }));
