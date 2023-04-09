@@ -42,9 +42,7 @@ function Search() {
     const submitHandler = () => {
         rideService.fetchRides(searchFilters.direction, searchFilters.date, new Date(new Date(searchFilters.date).getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0,10))
             .then((res) => 
-            
-            setRides(res.data)
-            
+                setRides(res.data)
             )
     }
 
@@ -65,10 +63,15 @@ function Search() {
                 count={searchFilters.capacity} min='1' max='8' step='1'/>
             <p className='help-text'>Найдено: 10</p>
             </div>
+            
             <div>
-                {rides.map(ride => (
+            {rides ? (  
+                rides.map(ride => (
                     <Ride price={ride.price} description={ride.description} driverId={ride.driverId} />
-                ))}
+                ))
+            ) :(
+                <p>Loading data...</p>
+            )}
             </div>
 
         </div>
