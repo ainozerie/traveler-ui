@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Counter from "../Filters/Counter/Counter";
-import Notification from '../Notification/Notification';
+// import Notification from '../Notification/Notification';
 
 
 function Playground() {
@@ -31,7 +31,7 @@ function Playground() {
                 count={capacity} min='1' max='8'  />
                  <button onClick={handleCreateRide}>Create Ride</button>
 
-            {rideCreated && <Notification message="Ride Created" />}
+            {/* {rideCreated && <Notification message="Ride Created" />} */}
         </>
     );
 }
