@@ -53,10 +53,10 @@ function Search() {
                 changeHandler={filterHandler} />
 
             <p className='title'>Выберите дату:</p>
-            <DatePicker changeHandler={filterHandler} />
+            <DatePicker onClick={submitHandler} changeHandler={filterHandler} />
             <p>Количество мест:</p>
             <div className='content-inline-apart'>
-            <Counter getCount={getCount}
+            <Counter onClick={submitHandler} getCount={getCount}
                 count={searchFilters.capacity} min='1' max='8' step='1'/>
             <p className='help-text'>Найдено: 10</p>
             </div>
