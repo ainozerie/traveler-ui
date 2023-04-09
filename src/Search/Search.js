@@ -11,7 +11,7 @@ import Ride from '../Ride/Ride';
 const rideService = new RideService();
 
 function Search() {
-    let searchFilters = useSelector(state => state.session.searchFilters);
+    const searchFilters = useSelector(state => state.session.searchFilters);
     const dispatch = useDispatch();
 
     const [rides, setRides] = useState([]);
