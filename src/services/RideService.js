@@ -29,7 +29,7 @@ export class RideService {
             date: ride.date,
             description: ride.description,
             price: ride.price,
-            driverId: ride.driverId,
+            driver: ride.driver,
             capacity: ride.capacity,
             currentNumberOfPassengers: 0,
             status: ride.status
