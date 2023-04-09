@@ -16,7 +16,6 @@ function Search() {
 
     const [rides, setRides] = useState([]);
     console.log(searchFilters);
-    submitHandler();
 
     console.log(rideService.fetchAllRides().data)
 
@@ -26,6 +25,7 @@ function Search() {
     //updating direction and capacity filters, also date
     const filterHandler = event => {
         dispatch(updateFilters({ [event.target.name]: event.target.value }))
+        setTimeout(submitHandler, 100);
     }
 
     const submitHandler = () => {
