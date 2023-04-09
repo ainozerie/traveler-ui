@@ -28,7 +28,9 @@ function CreatePage() {
                 date: modifyDate(today),
                 description: newRide.description,
                 price: newRide.price,
-                driverId: 1,
+                driver :{
+                    id: 1
+                },
                 capacity: newRide.capacity,
                 currentNumberOfPassengers: 0,
                 status: 'AVAILABLE'
