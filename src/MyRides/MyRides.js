@@ -28,16 +28,18 @@ function MyRides() {
         // } else {
         //     return <p>У вас еще нет поездок...</p>
         // }
-
-        {myRides ? (  
-            myRides.map(ride => (
-                <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
-            ))
-        ) :(
-            <p>У вас еще нет поездок...</p>
-        )}
-
-
+        return (
+        <div>
+            {myRides ? (  
+                myRides.map(ride => (
+                    <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
+                ))
+            ) :(
+                <p>У вас еще нет поездок...</p>
+            )}
+            
+        </div>
+        )
     }
 
     useEffect(() => {
