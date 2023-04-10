@@ -31,7 +31,7 @@ function MyRides() {
         return (
         <div>
             {myRides ? (  
-                myRides.map(ride => (
+                myRides.filter(ride => ride.driver.tgUsername === JSON.parse(localStorage.getItem('user')).username).map(ride => (
                     <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
                 ))
             ) :(
@@ -55,12 +55,12 @@ function MyRides() {
     return (
         <div className='myRides'>
             <h1>Мои поездки</h1>
-            <div>
-                {displayMyRides()}
-            </div>
             <Link to={'/create'}>
                 <button>Создать новую</button>
             </Link>
+            <div>
+                {displayMyRides()}
+            </div>
         </div>
     );
 }
