@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { RideService } from '../services/RideService';
+import Ride from '../Ride/Ride';
+
+const rideService = new RideService();
+
 
 function MyRides() {
     const navigate = useNavigate();
@@ -18,7 +23,7 @@ function MyRides() {
     const displayMyRides = () => {
         if (myRides.length) {
             return myRides.map(ride => {
-                return <p>{ride}</p>
+                return <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
             });
         } else {
             return <p>У вас еще нет поездок...</p>
@@ -26,8 +31,8 @@ function MyRides() {
     }
 
     setTimeout(() => {
-        setMyRides(['1', '2', '3']);
-    }, 2000);
+        setMyRides(rideService.fetchRides().data);
+    }, 400);
 
     return (
         <div className='myRides'>
