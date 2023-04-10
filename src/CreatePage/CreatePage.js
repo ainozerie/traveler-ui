@@ -29,7 +29,7 @@ function CreatePage() {
                 description: newRide.description,
                 price: newRide.price,
                 driver :{
-                    id: 1
+                    tgUsername: JSON.parse(localStorage.getItem('user')).username
                 },
                 capacity: newRide.capacity,
                 currentNumberOfPassengers: 0,
