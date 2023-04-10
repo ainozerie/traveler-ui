@@ -30,9 +30,15 @@ function MyRides() {
         }
     }
 
-    setTimeout(() => {
-        setMyRides(rideService.fetchRides().data);
-    }, 400);
+    useEffect(() => {
+        rideService.fetchRides().then((res) =>{
+            setMyRides(res.data);
+        });
+      }, [])
+
+    // setTimeout(() => {
+    //     setMyRides(rideService.fetchRides().data);
+    // }, 400);
 
     return (
         <div className='myRides'>
