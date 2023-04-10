@@ -41,7 +41,7 @@ function MyRides() {
     }
 
     useEffect(() => {
-        rideService.fetchRides().then((res) =>{
+        rideService.fetchAllRides().then((res) =>{
             setMyRides(res.data);
         });
       }, [])
