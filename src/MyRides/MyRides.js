@@ -32,7 +32,7 @@ function MyRides() {
         <div>
             {myRides ? (  
                 myRides.filter(ride => ride.driver.tgUsername === JSON.parse(localStorage.getItem('user')).username).map(ride => (
-                    <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
+                    <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} username={ride.driver.tgUsername}/>
                 ))
             ) :(
                 <p>У вас еще нет поездок...</p>

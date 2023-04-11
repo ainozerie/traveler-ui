@@ -71,7 +71,7 @@ function Search() {
             <div>
             {rides ? (  
                 rides.map(ride => (
-                    <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
+                    <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} username={ride.driver.tgUsername} />
                 ))
             ) :(
                 <p>Loading data...</p>

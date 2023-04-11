@@ -17,7 +17,9 @@ function Ride(props) {
             </div>
             <div class="d-flex d-left"><a class="">Осталось мест: {props.numberOfPlacesAvailable}</a></div>
             <div className='d-flex d-right'>
-            <a className='connect'>Связаться с водителем</a>
+            <a href={'https://t.me/' + props.username}
+                    target='_blank'
+                     className='connect'>Связаться с водителем</a>
             </div>
         </div>
     );
