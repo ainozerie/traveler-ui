@@ -54,7 +54,7 @@ function Auth() {
                 if (res.status == 200) {
                     // setAuthResult(true);
                     // localStorage.setItem('user', JSON.stringify(userData));
-                    console.log('user was created or updated')
+                    console.log(res)
                     return (
                         <div className='auth'>
                             <Spinner />
