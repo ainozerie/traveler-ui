@@ -12,7 +12,7 @@ export class AuthService {
     async approveUser(user) {
         // "{"id":993214357,"first_name":"Sergei","last_name":"Ainozerov","username":"ainozerie","token":"1681591281487","photo_url":"AgACAgIAAxUAAWQ5cI6icTMZKEllr3C3hOEvwuPDAALNpzEblT8zO_wCitBepbZZAQADAgADYQADLwQ"}"
 
-        let response = await axios.post(this.URL + 'auth/' + {
+        let response = await axios.post(this.URL + {
             id: user.id,
             firstname: user.first_name,
             surname: user.last_name,
