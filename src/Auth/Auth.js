@@ -53,7 +53,7 @@ function Auth() {
             // we send backend verify request, if result ok -> continue, if not -> relogin
             authService.approveUser(userData).then(res => {
                 if (res.status == 200) {
-                    setAuthResult(true);
+                    // setAuthResult(true);
                     console.log('user was created or updated')
                     return (
                         <div className='auth'>
