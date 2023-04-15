@@ -53,7 +53,7 @@ function Auth() {
             authService.approveUser(userData).then(res => {
                 if (res.status == 200) {
                     // setAuthResult(true);
-                    localStorage.setItem('user', JSON.stringify(userData));
+                    // localStorage.setItem('user', JSON.stringify(userData));
                     console.log('user was created or updated')
                     return (
                         <div className='auth'>
