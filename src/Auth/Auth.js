@@ -49,11 +49,11 @@ function Auth() {
     } else if (urlQuery.search.length > 0) {
         let userData = retrieveDatafromUrl(urlQuery);
         if (userData.success) {
-            localStorage.setItem('user', JSON.stringify(userData));
             // we send backend verify request, if result ok -> continue, if not -> relogin
             authService.approveUser(userData).then(res => {
                 if (res.status == 200) {
                     // setAuthResult(true);
+                    localStorage.setItem('user', JSON.stringify(userData));
                     console.log('user was created or updated')
                     return (
                         <div className='auth'>
