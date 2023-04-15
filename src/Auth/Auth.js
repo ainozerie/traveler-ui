@@ -62,6 +62,7 @@ function Auth() {
                         </div>
                     );
                 } else {
+                    console.log(res)
                     console.log('user was not created')
                 }
             })
