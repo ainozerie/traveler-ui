@@ -7,7 +7,6 @@ import Counter from '../Filters/Counter/Counter';
 
 const rideService = new RideService();
 let today = new Date();
-console.log(modifyDate(today));
 
 function CreatePage() {
     const [newRide, setNewRide] = useState({

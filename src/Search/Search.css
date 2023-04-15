@@ -1,0 +1,9 @@
+.rides {
+    width: 100%;
+    min-height: 300px;
+}
+
+.noRides {
+    text-align: center;
+    margin-top: 45%;
+}

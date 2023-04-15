@@ -2,7 +2,7 @@ import React from 'react';
 import './Spinner.css';
 
 function Spinner() {
-    return (<div class="spinner"></div>);
+    return (<div className="spinner"></div>);
 }
 
 export default Spinner;
