@@ -8,7 +8,7 @@ function Playground() {
     const getCount = (count) => {
         setCapacity(count)
     }
-    // hi, Borya
+    // hi, Borya and Me
     return (
         <>
             <p>Playground</p>
