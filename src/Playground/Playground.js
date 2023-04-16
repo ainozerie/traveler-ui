@@ -35,7 +35,7 @@ function Playground() {
             var appName = "Traveler";
              window.navigator.standalone = true; // Запускаем сайт в standalone-режиме
             var addToHomeConfig = {appName: appName, rel: "apple-touch-icon", href: iconURL};
-            var addToHome = new addToHomescreen(addToHomeConfig);
+            var addToHome = addToHomescreen(addToHomeConfig);
             addToHome.show();
           }
         }
