@@ -22,6 +22,28 @@ function Playground() {
       }, 3000);
     };
 
+    const handleIphone = () => {
+        alert(navigator.userAgent + ' ' + navigator.userAgent.match(/iPhone/i))
+
+        if (navigator.userAgent.match(/iPhone/i)) {
+            // Код, который выполняется, если сайт открыт на iPhone
+            // проверяем, поддерживает ли устройство добавление на домашний экран
+            alert("standalone" in window.navigator && window.navigator.standalone)
+
+                if ("standalone" in window.navigator && window.navigator.standalone) {
+                    // создаем элемент ссылки
+                    var link = document.createElement("a");
+                    link.setAttribute("href", "https://traveler-ui-test.vercel.app/");
+                    link.setAttribute("rel", "apple-touch-icon");
+                    link.setAttribute("type", "image/png");
+                    link.setAttribute("sizes", "192x192");
+                    // добавляем элемент в head
+                    document.head.appendChild(link);
+                }
+  
+        }
+        
+      };
 
     return (
         <>
@@ -29,6 +51,7 @@ function Playground() {
             <Counter getCount={getCount}
                 count={capacity} min='1' max='8'  />
                  <button onClick={handleCreateRide}>Create Ride</button>
+                 <button onClick={handleIphone}>For iPhone add icon to homescreen</button>
 
             {/* {rideCreated && <Notification message="Ride Created" />} */}
         </>
