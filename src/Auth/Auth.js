@@ -53,6 +53,13 @@ function Auth() {
             authService.approveUser(userData).then(res => {
                 if (res) {
                     localStorage.setItem('user', JSON.stringify(res));
+                    setTimeout(() => navigate('/'), 1500);
+                    return (
+                        <div className='auth'>
+                            <Spinner />
+                            Выполняется вход
+                        </div>
+                    );
                 } else {
                     return (
                         <div className='auth'>
