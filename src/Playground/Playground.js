@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Counter from "../Filters/Counter/Counter";
+import addToHomescreen from "../addToHomeScreen/addtohomescreen";
 
 
 function Playground() {
@@ -23,24 +24,19 @@ function Playground() {
     };
 
     const handleIphone = () => {
-        alert(navigator.userAgent + ' ' + navigator.userAgent.match(/iPhone/i))
-
-        if (navigator.userAgent.match(/iPhone/i)) {
-            // Код, который выполняется, если сайт открыт на iPhone
-            // проверяем, поддерживает ли устройство добавление на домашний экран
-            alert(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)
-
-                if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
-                    // создаем элемент ссылки
-                    var link = document.createElement("a");
-                    link.setAttribute("href", "https://traveler-ui-test.vercel.app/");
-                    link.setAttribute("rel", "apple-touch-icon");
-                    link.setAttribute("type", "image/png");
-                    link.setAttribute("sizes", "192x192");
-                    // добавляем элемент в head
-                    document.head.appendChild(link);
-                }
-  
+        // Проверяем, работает ли браузер на iOS и не находится ли приложение уже на главном экране
+        if (navigator.userAgent.match(/iPhone/i) && !navigator.standalone) {
+          // Отображаем всплывающее окно с инструкцией для добавления сайта на главный экран
+          var addToHomeScreen = confirm("Добавить на главный экран?");
+          if (addToHomeScreen) {
+            // Добавляем сайт на главный экран
+            var iconURL = "https://cdn.iconscout.com/icon/premium/png-256-thumb/traveler-1539794-1306812.png";
+            var appName = "Traveler";
+             window.navigator.standalone = true; // Запускаем сайт в standalone-режиме
+            var addToHomeConfig = {appName: appName, rel: "apple-touch-icon", href: iconURL};
+            var addToHome = new addToHomescreen(addToHomeConfig);
+            addToHome.show();
+          }
         }
         
       };
