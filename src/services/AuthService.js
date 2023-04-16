@@ -6,7 +6,12 @@ export class AuthService {
 
     async sendToken(token) {
         let response = await axios.get(this.BOT_URL + 'auth/' + token);
-        return response.data;
+        if (response.status == 200) {
+            response.data.photo_url = decodeURIComponent(response.data.photo_url);
+            return response.data;
+        } else {
+            return null;
+        } 
     }
 
     async approveUser(user) {
@@ -19,6 +24,7 @@ export class AuthService {
             photoUrl: decodeURIComponent(user.photo_url)
         });
         if (response.status == 200) {
+            response.data.photo_url = response.data.photoUrl;
             return response.data;
         } else {
             return null;

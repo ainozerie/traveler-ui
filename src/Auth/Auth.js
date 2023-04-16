@@ -16,29 +16,33 @@ function Auth() {
     if (localStorage.token) {
         token = localStorage.token
     } else {
-        token = Date.now()
+        token = Date.now();
         localStorage.setItem('token', token);
     }
 
     useEffect(() => {
-        if (authResult) setTimeout(() => navigate('/'), 30000)
+        if (authResult) setTimeout(() => navigate('/'), 1500)
     }, [authResult]);
 
     const authHandler = () => {
         authService.sendToken(token).then(res => {
-            //  at this moment without code.status
+            //  at this moment without code.status TODO
             if (token == res.token) {
                 localStorage.setItem('user', JSON.stringify(res));
                 setAuthResult(true);
             } else {
-                console.log('we have not got userInfo');
+                return (
+                    <div className='auth'>
+                        Что-то пошло не так...
+                    </div>
+                );
             }
         })
     }
 
     // if localStorage has user
     if (localStorage.getItem('user')) {
-        setTimeout(() => navigate('/'), 30000)
+        setTimeout(() => navigate('/'), 1500)
         return (
             <div className='auth'>
                 <Spinner />
@@ -53,6 +57,13 @@ function Auth() {
             authService.approveUser(userData).then(res => {
                 if (res) {
                     localStorage.setItem('user', JSON.stringify(res));
+                    setTimeout(() => navigate('/'), 1500);
+                    return (
+                        <div className='auth'>
+                            <Spinner />
+                            Выполняется вход
+                        </div>
+                    );
                 } else {
                     return (
                         <div className='auth'>
