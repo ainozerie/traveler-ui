@@ -14,7 +14,7 @@ export const updateSession = createSlice({
     searchFilters: {
       direction: 'Rus',
       date: modifyDate(today),
-      capacity: '3'
+      capacity: '1'
     }
   },
   reducers: {

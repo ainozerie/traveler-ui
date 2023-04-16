@@ -5,7 +5,7 @@ export class RideService {
     url = 'https://traveler-production.up.railway.app/';
 
     async fetchRides(direction, afterDate, beforeDate) {
-        let response = await axios.get(this.url + 'rides/' + `query?direction=${direction.toUpperCase()}&afterDate=${afterDate}&beforeDate=${beforeDate}`)
+        let response = await axios.get(this.url + 'rides/' + `query?direction=${direction.toUpperCase()}&dateAfter=${afterDate}&dateBefore=${beforeDate}`)
         return response.data;
     
     }
@@ -29,7 +29,7 @@ export class RideService {
             date: ride.date,
             description: ride.description,
             price: ride.price,
-            driver: {id: ride.driverId},
+            driver: ride.driver,
             capacity: ride.capacity,
             currentNumberOfPassengers: 0,
             status: ride.status
