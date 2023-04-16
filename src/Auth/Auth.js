@@ -31,7 +31,11 @@ function Auth() {
                 localStorage.setItem('user', JSON.stringify(res));
                 setAuthResult(true);
             } else {
-                console.log('we have not got userInfo');
+                return (
+                    <div className='auth'>
+                        Что-то пошло не так...
+                    </div>
+                );
             }
         })
     }
