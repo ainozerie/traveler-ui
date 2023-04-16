@@ -11,10 +11,10 @@ function Playground() {
     // hi, Borya!
 
     function handleAddToHomeScreenClick() {
-      alert(window.navigator.addToHomeScreen);
-      if (window.navigator && window.navigator.addToHomeScreen) {
+      // alert(window.navigator.addToHomeScreen);
+      // if (window.navigator && window.navigator.addToHomeScreen) {
         window.navigator.addToHomeScreen();
-      }
+      // }
     }
   
 
