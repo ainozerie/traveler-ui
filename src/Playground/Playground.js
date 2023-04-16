@@ -11,6 +11,7 @@ function Playground() {
     // hi, Borya!
 
     function handleAddToHomeScreenClick() {
+      alert(window.navigator && window.navigator.addWebAppBanner);
       if (window.navigator && window.navigator.addWebAppBanner) {
         window.navigator.addWebAppBanner();
       }
