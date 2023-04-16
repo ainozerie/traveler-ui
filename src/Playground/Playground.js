@@ -24,6 +24,7 @@ function Playground() {
     };
 
     const handleIphone = () => {
+      alert(navigator.userAgent.match(/iPhone/i) && !navigator.standalone)
         // Проверяем, работает ли браузер на iOS и не находится ли приложение уже на главном экране
         if (navigator.userAgent.match(/iPhone/i) && !navigator.standalone) {
           // Отображаем всплывающее окно с инструкцией для добавления сайта на главный экран
