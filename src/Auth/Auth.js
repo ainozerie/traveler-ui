@@ -51,20 +51,7 @@ function Auth() {
         if (userData.success) {
             // we send backend verify request, if result ok -> continue, if not -> relogin
             authService.approveUser(userData).then(res => {
-                if (res.status == 200) {
-                    // setAuthResult(true);
-                    // localStorage.setItem('user', JSON.stringify(userData));
-                    console.log(res)
-                    return (
-                        <div className='auth'>
-                            <Spinner />
-                            Выполняется вход
-                        </div>
-                    );
-                } else {
-                    console.log(res)
-                    console.log('user was not created')
-                }
+                console.log(res)
             })
         }
     // if url does not have anything relevant to be checked and localStorage is empty
