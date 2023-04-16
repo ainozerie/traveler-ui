@@ -51,6 +51,7 @@ function Auth() {
         if (userData.success) {
             localStorage.setItem('user', JSON.stringify(userData));
             setAuthResult(true);
+            alert('we are here')
             return (
                 <div className='auth'>
                     <Spinner />
