@@ -28,9 +28,9 @@ function Playground() {
         if (navigator.userAgent.match(/iPhone/i)) {
             // Код, который выполняется, если сайт открыт на iPhone
             // проверяем, поддерживает ли устройство добавление на домашний экран
-            alert("standalone" in window.navigator && window.navigator.standalone)
+            alert(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)
 
-                if ("standalone" in window.navigator && window.navigator.standalone) {
+                if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
                     // создаем элемент ссылки
                     var link = document.createElement("a");
                     link.setAttribute("href", "https://traveler-ui-test.vercel.app/");
