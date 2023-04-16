@@ -10,18 +10,18 @@ export class AuthService {
     }
 
     async approveUser(user) {
-        // "{"id":993214357,"first_name":"Sergei","last_name":"Ainozerov","username":"ainozerie","token":"1681591281487","photo_url":"AgACAgIAAxUAAWQ5cI6icTMZKEllr3C3hOEvwuPDAALNpzEblT8zO_wCitBepbZZAQADAgADYQADLwQ"}"
-
         let response = await axios.post(this.URL, {
             id: Number(user.id),
             firstname: user.first_name,
             surname: user.last_name,
             tgUsername: user.username,
             phoneNumber: '',
-            photoUrl: user.photo_url
+            photoUrl: decodeURIComponent(user.photo_url)
         });
-        return response.data;
+        if (response.status == 200) {
+            return response.data;
+        } else {
+            return null;
+        } 
     }
-
-
 }

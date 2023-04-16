@@ -51,7 +51,15 @@ function Auth() {
         if (userData.success) {
             // we send backend verify request, if result ok -> continue, if not -> relogin
             authService.approveUser(userData).then(res => {
-                console.log(res)
+                if (res) {
+                    localStorage.setItem('user', JSON.stringify(res));
+                } else {
+                    return (
+                        <div className='auth'>
+                            Что-то пошло не так...
+                        </div>
+                    );
+                }
             })
         }
     // if url does not have anything relevant to be checked and localStorage is empty
