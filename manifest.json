@@ -14,7 +14,7 @@
         "type": "image/png"
       }
     ],
-    "start_url": "https://traveler-borsmar.vercel.app/",
+    "start_url": "/",
     "background_color": "#ffffff",
     "theme_color": "#333333",
     "display": "standalone"
