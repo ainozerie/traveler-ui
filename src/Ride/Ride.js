@@ -9,10 +9,10 @@ function Ride(props) {
                     <img src='https://www.pngall.com/wp-content/uploads/12/Driver-PNG-HD-Image.png' />
                     <p className='username'>{props.firstname + ' ' + props.surname}</p>
                 </div>
-                <p className='price'>{ride.price} euro</p>
+                <p className='price'>{props.price} euro</p>
             </div>
             <div className='ride-content'>
-                <p>{ride.description}</p>
+                <p>{props.description}</p>
             </div>
             <div className="d-flex d-left"><a className="">Осталось мест: {props.numberOfPlacesAvailable}</a></div>
             <div className='d-flex d-right'>
