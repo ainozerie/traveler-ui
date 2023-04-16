@@ -27,17 +27,16 @@ function Playground() {
       alert(navigator.userAgent.match(/iPhone/i) && !navigator.standalone)
         // Проверяем, работает ли браузер на iOS и не находится ли приложение уже на главном экране
         if (navigator.userAgent.match(/iPhone/i) && !navigator.standalone) {
-          // Отображаем всплывающее окно с инструкцией для добавления сайта на главный экран
-          var addToHomeScreen = true;
-          if (addToHomeScreen) {
-            // Добавляем сайт на главный экран
-            var iconURL = "https://cdn.iconscout.com/icon/premium/png-256-thumb/traveler-1539794-1306812.png";
-            var appName = "Traveler";
-             window.navigator.standalone = true; // Запускаем сайт в standalone-режиме
-            var addToHomeConfig = {appName: appName, rel: "apple-touch-icon", href: iconURL};
-            var addToHome = addToHomescreen(addToHomeConfig);
-            addToHome.show();
-          }
+          var addToHomeConfig = {
+            autostart: false,
+            message: 'Добавить на главный экран?',
+            touchIcon: 'https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg',
+            arrow: true,
+            lifespan: 0
+          };
+          var addToHome = addToHomescreen(addToHomeConfig);
+          addToHome.show();
+        
         }
         
       };
