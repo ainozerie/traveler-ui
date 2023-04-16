@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Counter from "../Filters/Counter/Counter";
-import addToHomescreen from "../addToHomeScreen/addtohomescreen";
+import addToHomescreen from "add-to-homescreen";
 
 
 function Playground() {
