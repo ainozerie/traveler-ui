@@ -18,17 +18,17 @@ function Playground() {
   // Приложение уже открыто в полноэкранном режиме
   } else {
   // Создаем кнопку "Добавить на рабочий стол"
-  var addToHomeScreenButton = document.createElement('button');
-  addToHomeScreenButton.innerText = 'Добавить на рабочий стол';
-  addToHomeScreenButton.addEventListener('click', function() {
+  // var addToHomeScreenButton = document.createElement('button');
+  // addToHomeScreenButton.innerText = 'Добавить на рабочий стол';
+  // addToHomeScreenButton.addEventListener('click', function() {
     // Добавляем метку приложения на рабочий стол
     window.navigator.standalone = true;
     var link = document.createElement('link');
     link.setAttribute('rel', 'manifest');
     link.setAttribute('href', '/manifest.json');
     document.head.appendChild(link);
-  });
-  document.body.appendChild(addToHomeScreenButton);
+  // });
+  // document.body.appendChild(addToHomeScreenButton);
   }
 
 };
