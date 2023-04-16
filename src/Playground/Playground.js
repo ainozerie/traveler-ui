@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Counter from "../Filters/Counter/Counter";
 import addToHomescreen from "add-to-homescreen";
-import { AddToHomeScreen } from 'react-add-to-homescreen';
+import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 
 
 function Playground() {
@@ -45,11 +45,7 @@ function Playground() {
     return (
         <>
             <p>Playground</p>
-            <AddToHomeScreen
-        title="Добавить на главный экран"
-        logoSrc="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"
-      />
-
+            <AddToHomeScreen />
             <Counter getCount={getCount}
                 count={capacity} min='1' max='8'  />
                  <button onClick={handleCreateRide}>Create Ride</button>
