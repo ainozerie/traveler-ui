@@ -1,0 +1,22 @@
+{
+    "name": "Мой попутчик",
+    "short_name": "Мой попутчик",
+    "description": "Мой попутчик",
+    "icons": [
+      {
+        "src": "https://www.vhv.rs/dpng/d/82-824432_icon-192x192-png-transparent-png.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "https://w7.pngwing.com/pngs/350/89/png-transparent-computer-icons-google-alerts-others-orange-silhouette-red-alert-thumbnail.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#333333",
+    "display": "standalone"
+  }
+  
