@@ -14,7 +14,6 @@ const rideService = new RideService();
 function Search() {
     const searchFilters = useSelector(state => state.session.searchFilters);
     const dispatch = useDispatch();
-
     const [rides, setRides] = useState([]);
     // console.log(searchFilters);
 
@@ -32,7 +31,6 @@ function Search() {
     const getCount = (count) => {
         dispatch(updateFilters({ 'capacity': count }));
     }
-    //updating direction and capacity filters, also date
     const filterHandler = event => {
         dispatch(updateFilters({ [event.target.name]: event.target.value }))
     }

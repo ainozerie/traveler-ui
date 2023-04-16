@@ -11,7 +11,7 @@ function Playground() {
     const getCount = (count) => {
         setCapacity(count)
     }
-
+    
     const [rideCreated, setRideCreated] = useState(false);
 
     const handleCreateRide = () => {
