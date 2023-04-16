@@ -7,7 +7,7 @@ export class AuthService {
     async sendToken(token) {
         let response = await axios.get(this.BOT_URL + 'auth/' + token);
         if (response.status == 200) {
-            response.data.photo_url = decodeURIComponent(response.data.photo_url)
+            response.data.photo_url = decodeURIComponent(response.data.photoUrl)
             return response.data;
         } else {
             return null;
