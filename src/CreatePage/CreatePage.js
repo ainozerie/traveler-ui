@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 
 const rideService = new RideService();
 let today = new Date();
-console.log(modifyDate(today));
 
 function CreatePage() {
     const navigate = useNavigate();
@@ -34,27 +33,33 @@ function CreatePage() {
     }, [result])
     
     const clickHandler = () => {
-        if (newRide.description.length < 10) {
-            alert('Описание слишком короткое, минимум 10 знаков.')
-        } else {
-            setIsLoading(true);
-            rideService.createRide(
-                {
-                    direction: newRide.direction,
-                    date: modifyDate(today),
-                    description: newRide.description,
-                    price: newRide.price,
-                    driverId: 4,
-                    capacity: newRide.capacity,
-                    currentNumberOfPassengers: 0,
-                    status: 'AVAILABLE'
-                }
-            ).then(res => {
-                setIsLoading(false);
-                console.log(res);
-                setResult(true);
-            });
-        }
+        rideService.createRide(
+            {
+                direction: newRide.direction,
+                date: modifyDate(today),
+                description: newRide.description,
+                price: newRide.price,
+                driver :{
+                    tgUsername: JSON.parse(localStorage.getItem('user')).username
+                },
+                capacity: newRide.capacity,
+                currentNumberOfPassengers: 0,
+                status: 'AVAILABLE'
+            }
+        ).then(res => console.log(res));
+        // console.log(newRide);
+        // rideService.createRide(
+        //     {
+        //         direction: 'RUS',
+        //         date: '2023-02-12',
+        //         description: 'RRR',
+        //         price: 10,
+        //         driverId: 1,
+        //         capacity: 1,
+        //         currentNumberOfPassengers: 0,
+        //         status: 'AVAILABLE'
+        //     }
+        // ).then(res => console.log(res));
     }
 
     const changeHandler = event => {

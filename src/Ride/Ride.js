@@ -1,23 +1,24 @@
 import React from 'react';
 import './Ride.css'
 
-function Ride({ride}) {
-    console.log(ride);
+function Ride(props) {
     return (
         <div className='ride shadow d-flex'>
             <div className='content-inline-apart'>
                 <div className='ride-header'>
                     <img src='https://www.pngall.com/wp-content/uploads/12/Driver-PNG-HD-Image.png' />
-                    <p className='username'>{ride.driver.firstname} {ride.driver.surname}</p>
+                    <p className='username'>{props.firstname + ' ' + props.surname}</p>
                 </div>
-                <p className='price'>{ride.price} euro</p>
+                <p className='price'>{props.price} euro</p>
             </div>
             <div className='ride-content'>
-                <p>{ride.description}</p>
+                <p>{props.description}</p>
             </div>
-            <div className='content-inline-apart'>
-                <p className='help-text'>Местa: {ride.capacity - ride.currentNumberOfPassengers}</p>
-                <a className='connect' href={'https://t.me/' + ride.driver.tgUsername} target='_blank'>Связаться с водителем</a>
+            <div className="d-flex d-left"><a className="">Осталось мест: {props.numberOfPlacesAvailable}</a></div>
+            <div className='d-flex d-right'>
+            <a href={'https://t.me/' + props.username}
+                    target='_blank'
+                     className='connect'>Связаться с {props.firstname}</a>
             </div>
         </div>
     );
