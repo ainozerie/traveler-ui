@@ -9,24 +9,19 @@ function Playground() {
     const getCount = (count) => {
         setCapacity(count)
     }
-    
-    const [rideCreated, setRideCreated] = useState(false);
+    // hi, Borya!
 
-    const handleCreateRide = () => {
-        // Code to create ride goes here
-        console.log('play!')
-        setRideCreated(true);
-  
-        setTimeout(() => {
-            setRideCreated(false);
-        }, 3000);
-    };
-
-    const handleIphone = () => {};
+    function handleAddToHomeScreenClick() {
+      // alert(window.navigator.addToHomeScreen);
+      // if (window.navigator && window.navigator.addToHomeScreen) {
+        window.navigator.addToHomeScreen();
+      // }
+    }
 
     return (
         <>
             <p>Playground</p>
+            <button onClick={handleAddToHomeScreenClick}>Handle phone app</button>
             <Counter getCount={getCount}
                 count={capacity} min='1' max='8'  />
                  <button onClick={handleCreateRide}>Create Ride</button>
