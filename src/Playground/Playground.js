@@ -13,13 +13,13 @@ function Playground() {
     const [rideCreated, setRideCreated] = useState(false);
 
     const handleCreateRide = () => {
-      // Code to create ride goes here
+        // Code to create ride goes here
+        console.log('play!')
+        setRideCreated(true);
   
-      setRideCreated(true);
-  
-      setTimeout(() => {
-        setRideCreated(false);
-      }, 3000);
+        setTimeout(() => {
+            setRideCreated(false);
+        }, 3000);
     };
 
     const handleIphone = () => {};
