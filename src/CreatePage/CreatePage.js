@@ -27,39 +27,42 @@ function CreatePage() {
     })
     const [capacity, setCapacity] = useState(newRide.capacity);
     const [price, setPrice] = useState(newRide.price);
+    const [user, setUser] = useState({});
 
     useEffect(() => {
-        if (result) setTimeout(() => navigate('/myrides'), 100000)
+        if (result) setTimeout(() => navigate('/myrides'), 1500)
     }, [result])
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            setUser(JSON.parse(localStorage.getItem('user')));
+        } else {
+            navigate('/auth');
+        }
+    }, []);
     
     const clickHandler = () => {
         rideService.createRide(
             {
                 direction: newRide.direction,
-                date: modifyDate(today),
+                date: newRide.date,
                 description: newRide.description,
                 price: newRide.price,
-                driver :{
-                    tgUsername: JSON.parse(localStorage.getItem('user')).username
+                driver: {
+                    tgUsername: user.username,
+                    firstname: user.first_name,
+                    surname: user.last_name,
+                    photoUrl: user.photo_url
                 },
                 capacity: newRide.capacity,
                 currentNumberOfPassengers: 0,
                 status: 'AVAILABLE'
             }
-        ).then(res => console.log(res));
-        // console.log(newRide);
-        // rideService.createRide(
-        //     {
-        //         direction: 'RUS',
-        //         date: '2023-02-12',
-        //         description: 'RRR',
-        //         price: 10,
-        //         driverId: 1,
-        //         capacity: 1,
-        //         currentNumberOfPassengers: 0,
-        //         status: 'AVAILABLE'
-        //     }
-        // ).then(res => console.log(res));
+        ).then(status => {
+            if (status === 200) {
+                setResult(true);
+            }
+        });
     }
 
     const changeHandler = event => {

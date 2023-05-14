@@ -39,7 +39,6 @@ function Search() {
         rideService.fetchRides(searchFilters.direction, searchFilters.date, new Date(new Date(searchFilters.date).getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0,10))
             .then((res) => {
                 res = res.filter(ride => (ride.capacity - ride.currentNumberOfPassengers) >= searchFilters.capacity);
-                console.log(res)
                 setRides(res)
             });
     }
@@ -75,7 +74,8 @@ function Search() {
                             numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} 
                             username={ride.driver.tgUsername} 
                             firstname={ride.driver.firstname}
-                            surname={ride.driver.surname} />
+                            surname={ride.driver.surname}
+                            photo={ride.driver.photoUrl} />
                 ))
             ) :(
                 <p className='noRides'>Loading data...</p>

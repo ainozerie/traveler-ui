@@ -19,38 +19,28 @@ function MyRides() {
             navigate('/auth');
         }
     }, []);
-
-    const displayMyRides = () => {
-        // if (myRides !== undefined) {
-        //     return myRides.map(ride => {
-        //         return <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} />
-        //     });
-        // } else {
-        //     return <p>У вас еще нет поездок...</p>
-        // }
-        return (
-        <div>
-            {myRides ? (  
-                myRides.filter(ride => ride.driver.tgUsername === JSON.parse(localStorage.getItem('user')).username).map(ride => (
-                    <Ride price={ride.price} description={ride.description} driverId={ride.driverId} numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} username={ride.driver.tgUsername}/>
-                ))
-            ) :(
-                <p>У вас еще нет поездок...</p>
-            )}
-            
-        </div>
-        )
-    }
-
+    
     useEffect(() => {
-        rideService.fetchAllRides().then((res) =>{
-            setMyRides(res.data);
-        });
-      }, [])
+        // if user exist
+        if (true) {
+            rideService.fetchAllRides().then((res) => {
+                let myRides = res.data.filter(ride => ride.driver.tgUsername === user.username);
+                setMyRides(myRides);
+            });
+        }
+      }, [user])
 
-    // setTimeout(() => {
-    //     setMyRides(rideService.fetchRides().data);
-    // }, 400);
+    const displayMyRides = myRides.map(ride => {
+        return <Ride    key={ride.description}
+                        price={ride.price} 
+                        description={ride.description} 
+                        driverId={ride.driverId} 
+                        numberOfPlacesAvailable={ride.capacity - ride.currentNumberOfPassengers} 
+                        firstname={ride.driver.firstname}
+                        surname={ride.driver.surname}
+                        photo={ride.driver.photoUrl} />
+    })
+
 
     return (
         <div className='myRides'>
@@ -59,7 +49,7 @@ function MyRides() {
                 <button>Создать новую</button>
             </Link>
             <div>
-                {displayMyRides()}
+                {displayMyRides}
             </div>
         </div>
     );

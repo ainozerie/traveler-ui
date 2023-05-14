@@ -34,7 +34,7 @@ export class RideService {
             currentNumberOfPassengers: 0,
             status: ride.status
           })
-        return response.data;
+        return response.status;
     }
     updateRide() {
 
