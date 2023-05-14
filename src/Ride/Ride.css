@@ -6,6 +6,7 @@
 }
 .ride img {
     width: 50px;
+    border-radius: 50%;
 }
 .ride-header {
     display: flex;

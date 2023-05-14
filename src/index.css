@@ -263,7 +263,7 @@ input[type=number] {
 }
 
 .success {
-    color: var(--green);
+    color: var(--blue);
     font-weight: bold;
     font-size: 20px;
 }
